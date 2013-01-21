@@ -1,0 +1,447 @@
+/*   
+Theme Name: Pomiet (based off HTML5 Reset)
+Theme URI: http://html5reset.org
+Description: The default theme for the Pomiet site.
+Author: Sparkbox
+Author URI: http://seesparkbox.com
+Version: 1.0
+*/
+
+/*
+	HTML5 Reset Wordpress Theme :: style.css
+	----------------------------------------------------------
+	We have learned much from/been inspired by/taken code where offered from:
+	
+	Eric Meyer					:: http://ericmeyer.com
+	HTML5 Doctor				:: http://html5doctor.com
+	and the HTML5 Boilerplate	:: http://html5boilerplate.com
+	
+	Special thanks: The Wordpress theme owes its start to an empty theme authored 
+		by Chris Coyier & Jeff Starr: http://digwp.com
+	
+-------------------------------------------------------------------------------*/
+
+/* Let's default this puppy out
+-------------------------------------------------------------------------------*/
+
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}									
+
+article, aside, figure, footer, header, hgroup, nav, section {display: block;}
+
+/* Responsive images and other embedded objects
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites, like, say for Google Maps custom placemarkers. 
+   There has been a report of problems with standard Google maps as well, but we haven't been able to duplicate or diagnose the issue. */
+img,
+object,
+embed {max-width: 100%;}
+
+/* force a vertical scrollbar to prevent a jumpy page */
+html {overflow-y: scroll;}
+
+/* we use a lot of ULs that aren't bulleted. 
+	don't forget to restore the bullets within content. */
+ul {list-style: none;}
+
+blockquote, q {quotes: none;}
+
+blockquote:before, 
+blockquote:after, 
+q:before, 
+q:after {content: ''; content: none;}
+
+a {margin: 0; padding: 0; font-size: 100%; vertical-align: baseline; background: transparent;}
+
+del {text-decoration: line-through;}
+
+abbr[title], dfn[title] {border-bottom: 1px dotted #000; cursor: help;}
+
+/* tables still need cellspacing="0" in the markup */
+table {border-collapse: collapse; border-spacing: 0;}
+th {font-weight: bold; vertical-align: bottom;}
+td {font-weight: normal; vertical-align: top;}
+
+hr {display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0;}
+
+input, select {vertical-align: middle;}
+
+pre {
+	white-space: pre; /* CSS2 */
+	white-space: pre-wrap; /* CSS 2.1 */
+	white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+	word-wrap: break-word; /* IE */
+}
+
+input[type="radio"] {vertical-align: text-bottom;}
+input[type="checkbox"] {vertical-align: bottom; *vertical-align: baseline;}
+.ie6 input {vertical-align: text-bottom;}
+
+select, input, textarea {font: 99% sans-serif;}
+
+table {font-size: inherit; font: 100%;}
+ 
+/* Accessible focus treatment
+	people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active {outline: none;}
+
+small {font-size: 85%;}
+
+strong, th {font-weight: bold;}
+
+td, td img {vertical-align: top;} 
+
+/* Make sure sup and sub don't screw with your line-heights
+	gist.github.com/413930 */
+sub, sup {font-size: 75%; line-height: 0; position: relative;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+/* standardize any monospaced elements */
+pre, code, kbd, samp {font-family: monospace, sans-serif;}
+
+/* hand cursor on clickable elements */
+.clickable,
+label, 
+input[type=button], 
+input[type=submit], 
+button {cursor: pointer;}
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {margin: 0;}
+
+/* make buttons play nice in IE */
+button {width: auto; overflow: visible;}
+ 
+/* scale images in IE7 more attractively */
+.ie7 img {-ms-interpolation-mode: bicubic;}
+
+/* prevent BG image flicker upon hover */
+.ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
+
+/* let's clear some floats */
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }  
+.clearfix:after { clear: both; }  
+.clearfix { zoom: 1; }  
+
+
+
+/* master styles 
+--------------------------------------------- */
+
+body {	
+	font-family: adelle,serif;
+	font-weight: 400;
+	font-size: 100%;
+	color: #444;
+	background: #4c4c4c url(/wp-content/themes/pomiet/images/noise.png) top left repeat;
+	}
+
+
+.wrapper {
+  width: 96%;
+  padding: 0 2%;
+}
+
+ul {
+  list-style: none;
+}
+
+nav.main-navigation a {
+  color: #000;
+  text-decoration: none;
+  padding: 11px 0 7px 0;
+  text-align: center;
+  display: block;
+  margin-bottom: .25em;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px; 
+  text-shadow: 1px 1px 1px rgba(255,255,255,.3);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+}
+  nav.main-navigation a.uncover {
+    background: #a6945d;
+  }
+    nav.main-navigation a.uncover:hover, nav.main-navigation a.uncover.current {
+      color: #a6945d;
+    }
+  nav.main-navigation a.inspire {
+    background: #bbbc56;
+  }
+    nav.main-navigation a.inspire:hover, nav.main-navigation a.inspire.current {
+      color: #bbbc56;
+    }
+  nav.main-navigation a.impact {
+    background: #9eb0bb;
+  }
+    nav.main-navigation a.impact:hover, nav.main-navigation a.impact.current {
+      color: #9eb0bb;
+    }
+  nav.main-navigation a:hover, nav.main-navigation a.current {
+    background: #fff;
+  }
+
+nav.main-navigation select {
+  display: none;
+}
+
+a {
+  color: #444;
+}
+
+/* accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active { outline: none; }
+
+a:hover { text-decoration: underline; }
+
+
+
+/* @group main styles 
+--------------------------------------------- */
+
+  /* @group HEADER */
+  
+  .uncover header {
+    background: #715a24 url(/wp-content/themes/pomiet/images/noise.png) top left repeat; 
+  }
+    .uncover header ul {
+      background: rgba(0, 0, 0, .35);
+    }
+  .inspire header {
+    background: #676f4f url(/wp-content/themes/pomiet/images/noise.png) top left repeat; 
+  }
+    .inspire header ul {
+      background: rgba(0, 0, 0, .35);
+    }
+  .impact header {
+    background: #556568 url(/wp-content/themes/pomiet/images/noise.png) top left repeat; 
+  }
+    .impact header ul {
+      background: rgba(0, 0, 0, .35);
+    }
+  
+  header {
+    -webkit-box-shadow: inset 0px -10px 16px -5px rgba(0, 0, 0, .15);
+    -moz-box-shadow: inset 0px -10px 16px -5px rgba(0, 0, 0, .15);
+    box-shadow: inset 0px -10px 16px -5px rgba(0, 0, 0, .15);
+    text-align: center;
+    overflow: hidden;
+  }
+  
+    header ul {
+      -webkit-box-shadow: inset 0px -3px 6px -1px rgba(0, 0, 0, .3);
+      -moz-box-shadow: inset 0px -3px 6px -1px rgba(0, 0, 0, .3);
+      box-shadow: inset 0px -3px 6px -1px rgba(0, 0, 0, .3); 
+      -moz-border-radius-topleft: 0px;
+      -moz-border-radius-topright: 0px;
+      -moz-border-radius-bottomright: 3px;
+      -moz-border-radius-bottomleft: 3px;
+      -webkit-border-radius: 0px 0px 3px 3px;
+      border-radius: 0px 0px 3px 3px; 
+      padding: 3px 0;
+      margin-bottom: .5em;
+    }
+      header ul li {
+        display: inline;
+      }
+        header ul li a {
+          color: #fff;
+          font-family: futura-pt,sans-serif;
+          font-weight: bold;
+          letter-spacing: .1em;
+          text-decoration: none;
+          text-transform: uppercase;
+          font-size: .65em;
+          margin-right: 10px;
+          border-right: 1px solid #fff;
+          padding-right: 10px;
+        }
+          header ul li.current a {
+            text-decoration: underline;
+          }
+        header ul li:last-child a {
+          margin-right: 0;
+          padding-right: 0;
+          border-right: none;
+        }
+        
+  /* @end HEADER */
+  
+  
+  /* @group HERO */
+  
+  .uncover .hero {
+    background-color: #957f3d;
+  }
+  .inspire .hero {
+    background-color: #818563;
+  }
+  .impact .hero {
+    background-color: #556568;
+  }
+  
+  .hero {
+    padding: 0 0 20px;
+    background: url(/wp-content/themes/pomiet/images/noise.png) top left repeat;
+    background: url(/wp-content/themes/pomiet/images/noise.png) top left repeat, -moz-radial-gradient(bottom center, ellipse cover, rgba(255,255,255,.3) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+    background: url(/wp-content/themes/pomiet/images/noise.png) top left repeat, -webkit-gradient(radial, bottom center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,.3)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+    background: url(/wp-content/themes/pomiet/images/noise.png) top left repeat, -webkit-radial-gradient(bottom center, ellipse cover, rgba(255,255,255,.3) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+    background: url(/wp-content/themes/pomiet/images/noise.png) top left repeat, -o-radial-gradient(bottom center, ellipse cover, rgba(255,255,255,.3) 0%,rgba(255,255,255,0) 100%); /* Opera 12+ */
+    background: url(/wp-content/themes/pomiet/images/noise.png) top left repeat, -ms-radial-gradient(bottom center, ellipse cover, rgba(255,255,255,.3) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
+    background: url(/wp-content/themes/pomiet/images/noise.png) top left repeat, radial-gradient(bottom center, ellipse cover, rgba(255,255,255,.3) 0%,rgba(255,255,255,0) 100%); /* W3C */
+  }
+  .global-page .hero, .page-template-second-level-page-php .hero {
+    padding: 30px 0;
+    background-color: #666;
+  }
+    .hero .wrapper {
+      padding: 75px 0 0 15px;
+    }
+    .home .hero .wrapper {
+      padding-top: 25px;
+    }
+      .home .hero .wrapper span.tagline {
+        color: #fff;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+      }
+    .global-page .hero .wrapper, .page-template-second-level-page-php .hero .wrapper {
+      padding-top: 10px;
+    }
+      
+    
+    .hero h1 {
+      font-weight: 900;
+      font-size: 60px;
+      color: #fff;
+      line-height: 1em;
+    }
+      .global-page .hero h1, .page-template-second-level-page-php .hero h1 {
+        font-size: 50px;
+      }
+    .hero span {
+      font-size: 25px;
+      color: #000;
+      font-weight: 900;
+      letter-spacing: .03em;
+      text-shadow: 1px 1px 1px rgba(255,255,255,.3);
+    }
+  
+  /* @end HERO */
+
+  /* @group CONTENT */
+  
+  .content-container {
+    background: #fff;
+    padding: 30px 0;
+    overflow: hidden;
+  }
+  
+    .content-container p.intro {
+      font-size: 29px;
+      font-weight: 700;
+      line-height: 40px;
+      letter-spacing: .03em;
+      color: #000;
+    }
+    
+    .content-container p {
+      font-size: 18px;
+      line-height: 27px;
+      margin-bottom: 1em;
+    }
+    
+    .content-container h2 {
+      font-size: 27px;
+      margin-bottom: .5em;
+    }
+      .uncover .content-container h2 {
+        color: #9d7d32;
+      }
+    
+    .content-container .specifics {
+      margin-top: 2em;
+      padding-top: 2em;
+      border-top: 1px solid #bfc1b7;
+    }
+    
+    .content-container aside {
+      font-style: italic;
+      font-weight: 600;
+      font-size: 29.6px;
+      color: #82807f;
+    }
+      .uncover .content-container aside {
+        color: #9d7d32;
+      }
+  
+  /* @end CONTENT */
+  
+  /* @group FOOTER */
+  
+  footer {
+    text-align: center;
+    padding: 15px 0;
+    overflow: hidden;
+  }
+  
+  footer .contact-info p {
+    color: #fff;
+    font-family: futura-pt,sans-serif;
+    font-size: 0.85em;
+    font-weight: normal;
+  }
+    footer .contact-info p a {
+      color: #fff;
+    }
+  
+  footer nav.main-navigation {
+    margin: 1em 0;
+  }
+  
+  footer ul {
+    margin-top: 1em;
+  }
+    footer ul li a {
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: .65em;
+      font-family: futura-pt,sans-serif;
+      font-weight: bold;
+      letter-spacing: .1em;
+    }
+  
+  footer .copyright {
+    margin-top: 10px;
+    color: #fff;
+    font-size: .65em;
+    font-family: futura-pt,sans-serif;
+    font-weight: bold;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  
+  /* @end FOOTER */
+
+/* @end main styles 
+--------------------------------------------- */
+
+
+
+/* Clear Fix from Dan Cedarholm @simplebits */
+.group:after {
+	content: ".";
+	display:  block;
+	height: 0;
+	clear: both;
+	visibility:  hidden;
+}

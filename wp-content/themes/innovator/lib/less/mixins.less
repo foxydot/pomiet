@@ -1,0 +1,69 @@
+@import 'elements';
+/* Import Fonts
+------------------------------------------------------------ */
+
+@import url(http://fonts.googleapis.com/css?family=Questrial);
+
+@white: #FFFFFF;
+@vltgrey: #F2F2F2;
+@ltgrey: #E6E6E6;
+@medgrey: #999999;
+@dkgrey: #333333;
+@black: #000000;
+
+@blue: #0099FF;
+@green: #85CC29;
+@yellow: #FFCC00;
+
+/* Font Stacks */
+.century {
+	font-family: "Century Gothic", "Questrial", Calibri, sans-serif;
+}
+.arial {
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.button(@color:@black) {
+	background: @color;
+	.rounded(8px);
+	border: 3px solid @white;
+	padding: 6px 24px;
+	.century;
+	color: @white;
+	font-weight: bold;
+    text-transform: lowercase;
+    display: table;
+    margin: 12px 0;
+}
+
+.button:hover,
+.button:visited,
+.button a,
+.button a:hover,
+.button a:visited {
+	color: white;
+	text-decoration: none;
+}
+
+.yellow-button {
+	background: url(../img/bkg-arrow.png) no-repeat center right;
+	padding: 2px 28px 2px 0px;
+	.century;
+	color: @dkgrey;
+	font-weight: bold;
+    text-transform: lowercase;
+    display: table;
+    margin: 1em 0 0 0;
+    border:0;
+}
+
+.clearfix {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clear:after{
+	.clearfix;
+}

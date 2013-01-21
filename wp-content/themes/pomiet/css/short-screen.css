@@ -1,0 +1,6 @@
+nav.main-navigation select { display: block;
+  width: 100%; margin: 15px 0 20px; }
+
+nav.main-navigation a {
+  display: none;
+}

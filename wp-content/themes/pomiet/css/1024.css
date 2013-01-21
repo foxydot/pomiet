@@ -1,0 +1,19 @@
+/* 1024 and up styles */
+
+.wrapper {
+  width: 960px;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.hero h1 {
+  font-size: 160px;
+}
+.hero span {
+  font-size: 39px;
+}
+  .hero .wrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }

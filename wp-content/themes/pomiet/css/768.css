@@ -1,0 +1,107 @@
+/* 768 and up styles */
+
+header .wrapper {
+  padding-bottom: 20px;
+  overflow: hidden;
+}
+
+nav.main-navigation {
+  width: 60%;
+  float: right;
+  display: block;
+  clear: right;
+}
+
+nav.main-navigation a {
+  width: 32.3%;
+  float: left;
+  margin-left: 1%;
+}
+
+.logo {
+  float: left;
+  margin: 27px 0 0;
+}
+
+ul.global-nav {
+  width: 145px;
+  float: right;
+  margin-bottom: 20px;
+}
+
+footer .contact-info {
+  width: 145px;
+  float: right;
+  margin-bottom: 20px;
+  padding-left: 35px;
+}
+  footer .contact-info p {
+    text-align: left;
+  }
+
+.hero h1 {
+  font-size: 150px;
+}
+.hero span {
+  font-size: 30px;
+}
+
+.uncover .hero .wrapper {
+  background: url(/wp-content/themes/pomiet/images/uncover-hero-mag.png) 95% 0px no-repeat;
+}
+.inspire .hero .wrapper {
+  background: url(/wp-content/themes/pomiet/images/inspire-hero-bulb.png) 95% 0px no-repeat;
+}
+.impact .hero .wrapper {
+  background: url(/wp-content/themes/pomiet/images/impact-hero-graph.png) 95% 0px no-repeat;
+}
+
+
+
+.content-container .content {
+  width: 64%;
+  padding-right: 2%;
+  float: left;
+}
+  .content-container .content .specifics section {
+    float: left;
+    width: 48%;
+    margin-right: 2%;
+  }
+  .content-container .content .specifics section:last-child {
+    margin-right: 0;
+    margin-left: 2%;
+  }
+.content-container aside {
+  width: 29%;
+  padding: 0 2%;
+  float: left;
+}
+
+
+footer .logo {
+  margin: 10px 0 0;
+}
+
+footer ul.global-nav {
+  width: auto;
+  margin-left: 30px;
+  margin-top: 0;
+}
+  footer ul.global-nav li {
+    text-align: left;
+  }
+
+footer nav.main-navigation {
+  clear: none;
+  margin-bottom: 0;
+  margin-top: 1em;
+  width: 50%;
+}
+
+footer .copyright {
+  width: 100%;
+  float: left;
+  text-align: left;
+  margin-top: 0;
+}

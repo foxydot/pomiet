@@ -1,0 +1,9 @@
+/* 480 and up styles */
+
+.hero h1 {
+  font-size: 100px;
+}
+.hero span {
+  font-size: 20px;
+}
+

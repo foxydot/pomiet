@@ -1,0 +1,105 @@
+/* ie styles */
+
+.wrapper {
+  width: 960px;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+header .wrapper {
+  padding-bottom: 20px;
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-size: 177px;
+}
+.hero span {
+  font-size: 39px;
+}
+  .hero .wrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+nav.main-navigation {
+  width: 60%;
+  float: right;
+  display: block;
+  clear: right;
+}
+
+nav.main-navigation a {
+  width: 32.3%;
+  float: left;
+  margin-left: 1%;
+}
+
+.logo {
+  float: left;
+  margin: 20px 0;
+}
+
+ul.global-nav {
+  width: 275px;
+  float: right;
+  margin-bottom: 20px;
+}
+
+
+.hero h1 {
+  font-size: 150px;
+}
+.hero span {
+  font-size: 30px;
+}
+
+
+
+.content-container .content {
+  width: 64%;
+  padding-right: 2%;
+  float: left;
+}
+  .content-container .content .specifics section {
+    float: left;
+    width: 48%;
+    margin-right: 2%;
+  }
+  .content-container .content .specifics section:last-child {
+    margin-right: 0;
+    margin-left: 2%;
+  }
+.content-container aside {
+  width: 29%;
+  padding: 0 2%;
+  float: left;
+}
+
+
+footer .logo {
+  margin: 10px 0 0;
+}
+
+footer ul.global-nav {
+  width: auto;
+  margin-left: 30px;
+  margin-top: 0;
+}
+  footer ul.global-nav li {
+    text-align: left;
+  }
+
+footer nav.main-navigation {
+  clear: none;
+  margin-bottom: 0;
+  margin-top: 1.5em;
+}
+
+footer .copyright {
+  width: 100%;
+  float: left;
+  text-align: left;
+  margin-top: 0;
+}
