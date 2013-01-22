@@ -1,16 +1,25 @@
 @import 'elements';
 @import 'mixins';
+#inner>.wrap {width:100%;max-width:100%;}
 
+h1.entry-title {
+	text-align: center;
+	width: auto;
+	margin: 0 auto;}
+
+.entry-content {padding: 0;}
 #homepage-one{
 	.wrap{
 		.widget{
 			float: left;
 			margin-right: 8%;
+			text-align: center;
 			h4 {
 				color: @green;
 			}
 			.readmore {
 				.yellow-button;
+				margin: 0 auto;
 			}
 		}
 		.widget.last-child{
@@ -110,4 +119,123 @@
 }
 .cols-4{
 	.widget{width: 21.583%}
+}
+
+/* Smaller screens */
+
+@media only screen and (max-width: 1023px) {
+	/* Enter Your Custom Styles Here */	
+	.one-half{float: none;width: 100%;}
+	#homepage-one{
+	.wrap{
+		.widget{
+			float: none;
+			margin-right: 0;
+			text-align: left;
+			margin: 1% 0;
+			.readmore {
+				margin: 0;
+			}
+		}
+	}
+}
+#homepage-two{
+	margin-top: 10px;
+	.title {
+		h4 {
+		border: 0;
+		height: auto;
+		width: 100%;
+		.rounded(0px);
+		padding: 0;
+		position: relative;
+		top: auto;
+		left: auto;
+		}
+	}
+}
+#homepage-three{
+	background: @vltgrey url(../img/bkg-shadow.png) no-repeat center top;
+	b {color: @yellow;}
+	.title {
+		h4 {color: @yellow;}
+	}
+	.one-half {
+		width: 40%;
+	}
+	.one-half.even {
+	clear: both;
+	margin-left: 0;
+	padding-left: 0;}
+}
+#homepage-four{
+	background: @ltgrey url(../img/bkg-shadow.png) no-repeat center top;
+	b {color: @blue;}
+	.title {
+		h4 {color: @blue;}
+	}
+	.widget {
+			float: left;
+			margin-right: 8%;}
+		.widget.last-child{
+			margin-right: 0;
+		}
+	.readmore{.button(@blue);}
+	}
+#homepage-five{
+	background: @white url(../img/bkg-shadow.png) no-repeat center top;
+	.title {float: none;
+		h4 {color: @green;}
+	}
+	.widgets {width: 100%; float: none;}
+	.widget {
+			float: left;
+			margin-right: 8%;}
+		.widget.last-child{
+			margin-right: 0;
+		}
+	.gform_wrapper{
+		.gform_footer {
+			position: relative;
+			.gform_button{
+				background: @green;
+				height: 90px;
+				width: 90px;
+				.rounded(90px);
+				border: 3px solid @white;
+				position: absolute;
+				top: -50px;
+				right: -20px;
+			}
+		}
+	}
+	address.email {margin: 1.5em 0}
+	}
+
+.widget-area{
+	padding: 1.5%;
+	.title {padding-left: 0;
+	}
+	h4 {text-align: left;margin: 0;}
+}
+.cols-2,
+.cols-3,
+.cols-4{
+	.widget{width: 100%}
+}
+}
+
+/* Mobile */
+
+@media handheld, only screen and (max-width: 767px) {
+	/* Enter Your Custom Styles Here */	
+}
+
+
+@media only screen and (max-width : 480px) {  
+	/* Enter Your Custom Styles Here */	  
+} 
+
+@media only screen and (max-width : 320px) {  
+	/* Enter Your Custom Styles Here */	
 }

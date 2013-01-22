@@ -1,8 +1,8 @@
 (function($){
-    SlideDeckLens['innovator-tool-kit-1'] = function(slidedeck){
+    SlideDeckLens['innovator'] = function(slidedeck){
     	
     	var self = this;
-        var ns = 'innovator-tool-kit-1';
+        var ns = 'innovator';
         var deck = $(slidedeck).slidedeck();
         
         var verticalDeck = deck.vertical();
@@ -641,9 +641,9 @@
     };
     
     $(document).ready(function(){
-        $('.lens-innovator-tool-kit-1 .slidedeck').each(function(){
-            if(typeof($.data(this, 'lens-innovator-tool-kit-1')) == 'undefined' || $.data(this, 'lens-innovator-tool-kit-1') == null){
-                $.data(this, 'lens-innovator-tool-kit-1', new SlideDeckLens['innovator-tool-kit-1'](this));
+        $('.lens-innovator .slidedeck').each(function(){
+            if(typeof($.data(this, 'lens-innovator')) == 'undefined' || $.data(this, 'lens-innovator') == null){
+                $.data(this, 'lens-innovator', new SlideDeckLens['innovator'](this));
             }
         });
     });

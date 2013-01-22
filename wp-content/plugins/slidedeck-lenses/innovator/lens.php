@@ -1,5 +1,5 @@
 <?php
-class SlideDeckLens_InnovatorToolKit1 extends SlideDeckLens_Scaffold {
+class SlideDeckLens_Innovator extends SlideDeckLens_Scaffold {
 	var $options_model = array(
         'Appearance' => array(
             'accentColor' => array(
