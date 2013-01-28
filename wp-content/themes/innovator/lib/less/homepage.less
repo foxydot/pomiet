@@ -1,5 +1,22 @@
 @import 'elements';
 @import 'mixins';
+
+.header-image {
+	#title-area {
+		#title {
+			a {
+				background: url('../img/logo-pomiet-lg.png') no-repeat center center;
+				display: block;
+				height: 160px;
+				width: 100%;
+				overflow: hidden;
+				padding: 0;
+				text-indent: -9999px;
+			}
+		}
+	}
+}
+
 #inner>.wrap {width:100%;max-width:100%;}
 
 h1.entry-title {
@@ -125,6 +142,12 @@ h1.entry-title {
 
 @media only screen and (max-width: 1023px) {
 	/* Enter Your Custom Styles Here */	
+}
+
+/* Mobile */
+
+@media handheld, only screen and (max-width: 767px) {
+	/* Enter Your Custom Styles Here */	
 	.one-half{float: none;width: 100%;}
 	#homepage-one{
 	.wrap{
@@ -160,10 +183,13 @@ h1.entry-title {
 	.title {
 		h4 {color: @yellow;}
 	}
-	.one-half {
-		width: 40%;
+	h4.widgettitle{
+		padding-left: 25%;
+		position: relative;
+		top: -2em;
 	}
-	.one-half.even {
+	.one-half {
+		float: none;width: 100%;
 	clear: both;
 	margin-left: 0;
 	padding-left: 0;}
@@ -171,12 +197,13 @@ h1.entry-title {
 #homepage-four{
 	background: @ltgrey url(../img/bkg-shadow.png) no-repeat center top;
 	b {color: @blue;}
-	.title {
+	.title {float: left;
 		h4 {color: @blue;}
 	}
+	.widgets {float: left;clear: none;width: 78.4%;}
 	.widget {
 			float: left;
-			margin-right: 8%;}
+			margin-left: 8%;}
 		.widget.last-child{
 			margin-right: 0;
 		}
@@ -225,12 +252,26 @@ h1.entry-title {
 }
 }
 
-/* Mobile */
 
-@media handheld, only screen and (max-width: 767px) {
-	/* Enter Your Custom Styles Here */	
+@media only screen and (max-width : 567px) {  
+	/* Enter Your Custom Styles Here */	  
+	
+.header-image {
+	#title-area {
+		#title {
+			a {
+				background: url('../img/logo-pomiet.png') no-repeat center center;
+				display: block;
+				height: 80px;
+				width: 100%;
+				overflow: hidden;
+				padding: 0;
+				text-indent: -9999px;
+			}
+		}
+	}
 }
-
+} 
 
 @media only screen and (max-width : 480px) {  
 	/* Enter Your Custom Styles Here */	  

@@ -1,3 +1,6 @@
+@import 'elements';
+@import 'mixins';
+
 .nav-responsive ul, 
 .nav-responsive li,
 .nav-responsive li a {  
@@ -20,7 +23,6 @@
 .wrap {
 width: 100%;
 max-width: 960px;
-min-width: 755px;
 margin: 0 auto;
 overflow: visible;
 }
@@ -121,8 +123,17 @@ img {
 
 /* Smaller screens */
 
-@media only screen and (max-width: 1023px) {
-
+@media only screen and (max-width: 767px) {
+.header-image {
+	#title-area {
+		#title {
+			a {
+				background-position: center center;
+			}
+		}
+	}
+}
+.entry-content {margin: 0;padding:0;}
 	
 		body {
 			width: 100%;
@@ -212,6 +223,76 @@ img {
 			margin: 0 20px 20px;
 		}
 		
+	
+	.nav-responsive {
+		border-bottom: 0;
+	}
+	.nav-responsive ul {
+		display: none;
+		height: auto;
+	}
+	.nav-responsive a#pull {
+		display: inline-block;
+		width: 100%;
+		position: relative;
+		text-indent: 20px;
+		background: @black;
+		min-height: 33px;
+		padding-top: 14px;
+		position: relative;
+		
+	}
+	
+	.nav-responsive a#pull:hover {
+		text-decoration: none;
+	}
+	
+	.nav-responsive a#pull > strong {
+		color: #fff;
+		text-decoration: none;
+		text-shadow:1px 1px 1px rgba(0, 0, 0, 0.78);
+		
+		font-size: 14px;
+	}
+	
+	
+	
+	.nav-responsive a#pull ul {
+		background-color: @medgrey;
+		margin-top: 14px;
+		padding: 0;
+		li {
+			float: none;
+			display: block;
+			list-style: none;
+			width: 100%;
+			background-color: @medgrey;
+			border-top:2px solid @white;
+			a:link, a:visited {
+				color: #fff;
+				text-transform: lowercase;
+				font-weight: bold;
+				color: @white;
+				padding: 0.5em 0;
+				display: block;
+			}
+		}
+		li.green {
+			background: @green;
+		}
+	}
+	
+	.nav-responsive a#pull:after {
+		content:"";
+		background: url('../img/mobile_button_white.png') no-repeat;
+		width: 30px;
+		height: 30px;
+		display: inline-block;
+		position: absolute;
+		right: 15px;
+		top: 10px;
+	}   
+	
 		#content {
 			padding: 0;
 		}
@@ -306,7 +387,7 @@ img {
 
 /* Mobile */
 
-@media handheld, only screen and (max-width: 767px) {
+@media handheld, only screen and (max-width: 567px) {
 
 	body {
 	font-size: 16px;
@@ -345,67 +426,6 @@ img {
 	}
 	
 		
-	
-	.nav-responsive {
-		border-bottom: 0;
-	}
-	.nav-responsive ul {
-		display: none;
-		height: auto;
-	}
-	.nav-responsive a#pull {
-		display: inline-block;
-		width: 100%;
-		position: relative;
-		text-indent: 20px;
-		background: url(../img/responsivebg.png) left top repeat-x;
-		min-height: 33px;
-		padding-top: 14px;
-		position: relative;
-		
-	}
-	
-	.nav-responsive a#pull:hover {
-		text-decoration: none;
-	}
-	
-	.nav-responsive a#pull > strong {
-		color: #fff;
-		text-decoration: none;
-		text-shadow:1px 1px 1px rgba(0, 0, 0, 0.78);
-		
-		font-size: 14px;
-	}
-	
-	
-	
-	.nav-responsive a#pull ul {
-		background-color: #062c46;
-		margin-top: 14px;
-	}
-	.nav-responsive a#pull ul li {
-		float: left;
-		display: block;
-		list-style: none;
-		width: 50%;
-		background-color: #062c46;
-	}
-	
-	.nav-responsive a#pull ul li a:link {
-		color: #fff;
-	}
-	
-	.nav-responsive a#pull:after {
-		content:"";
-		background: url('../img/mobile_button.png') no-repeat;
-		width: 30px;
-		height: 30px;
-		display: inline-block;
-		position: absolute;
-		right: 15px;
-		top: 10px;
-	}   
-	
 			
 		#footer .gototop,
 		#footer .creds {
