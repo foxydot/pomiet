@@ -86,7 +86,8 @@ h1.entry-title {
 	}
 	.widget {
 			float: left;
-			margin-right: 8%;}
+			margin-right: 8%;
+			height:240px;}
 		.widget.last-child{
 			margin-right: 0;
 		}
@@ -128,15 +129,9 @@ h1.entry-title {
 		h4 {text-align: right;font-weight: bold;}
 	}
 }
-.cols-2{
-	.widget{width: 41.5%}
-}
-.cols-3{
-	.widget{width: 28%}
-}
-.cols-4{
-	.widget{width: 21.583%}
-}
+.cols-2>.widget{width: 41.5%}
+.cols-3>.widget{width: 28%}
+.cols-4>.widget{width: 21.583%}
 
 /* Smaller screens */
 
@@ -202,11 +197,11 @@ h1.entry-title {
 	}
 	.widgets {float: left;clear: none;width: 78.4%;}
 	.widget {
-			float: left;
-			margin-left: 8%;}
-		.widget.last-child{
-			margin-right: 0;
-		}
+		float: left;
+		margin-left: 8%;}
+	.widget.last-child{
+		margin-left: -60px;
+	}
 	.readmore{.button(@blue);}
 	}
 #homepage-five{

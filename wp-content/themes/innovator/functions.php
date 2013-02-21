@@ -55,7 +55,7 @@ function msd_add_styles() {
 		}
 	}
 }
-add_action('wp_print_scripts', 'msd_add_scripts');
+add_action('wp_print_scripts', 'msd_add_scripts',0);
 
 function msd_add_scripts() {
 	global $is_IE;
