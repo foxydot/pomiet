@@ -76,40 +76,40 @@ function copyright($address = TRUE){
 
 
 function social_media($attr){
-	?>
-	<div id="social-media" class="social-media">
-			<?php if(get_option('msdsocial_linkedin_link')!=""){ ?>
-			<a href="<?php echo get_option('msdsocial_linkedin_link'); ?>" class="li" title="LinkedIn" target="_blank">LinkedIn</a>
-			<?php }?>
-			<?php if(get_option('msdsocial_twitter_user')!=""){ ?>
-			<a href="http://www.twitter.com/<?php echo get_option('msdsocial_twitter_user'); ?>" class="tw" title="Follow Us on Twitter!" target="_blank">Twitter</a>
-			<?php }?>
-			<?php if(get_option('msdsocial_google_link')!=""){ ?>
-			<a href="<?php echo get_option('msdsocial_google_link'); ?>" class="gl" title="Google+" target="_blank">Google+</a>
-			<?php }?>
-			<?php if(get_option('msdsocial_facebook_link')!=""){ ?>
-			<a href="<?php echo get_option('msdsocial_facebook_link'); ?>" class="fb" title="Join Us on Facebook!" target="_blank">Facebook</a>
-			<?php }?>
-			<?php if(get_option('msdsocial_flickr_link')!=""){ ?>
-			<a href="<?php echo get_option('msdsocial_flickr_link'); ?>" class="fl" title="Flickr" target="_blank">Flickr</a>
-			<?php }?>
-			<?php if(get_option('msdsocial_vimeo_link')!=""){ ?>
-			<a href="<?php echo get_option('msdsocial_vimeo_link'); ?>" class="vm" title="Vimeo" target="_blank">Vimeo</a>
-			<?php }?>
-			<?php if(get_option('msdsocial_youtube_link')!=""){ ?>
-			<a href="<?php echo get_option('msdsocial_youtube_link'); ?>" class="yt" title="YouTube" target="_blank">YouTube</a>
-			<?php }?>
-			<?php if(get_option('msdsocial_sharethis_link')!=""){ ?>
-			<a href="<?php echo get_option('msdsocial_sharethis_link'); ?>" class="st" title="ShareThis" target="_blank">ShareThis</a>
-			<?php }?>
-			<?php if(get_option('msdsocial_pinterest_link')!=""){ ?>
-			<a href="<?php echo get_option('msdsocial_pinterest_link'); ?>" class="pin" title="Pinterest" target="_blank">Pinterest</a>
-			<?php }?>
-			<?php if(get_option('msdsocial_show_feed')!=""){ ?>
-			<a href="<?php bloginfo('rss2_url'); ?>" class="rss" title="RSS Feed" target="_blank">RSS Feed</a>
-			<?php }?>
-		</div>
-		<?php 
+	$ret = '<div id="social-media" class="social-media">';
+			if(get_option('msdsocial_linkedin_link')!=""){
+			$ret .= '<a href="'. get_option('msdsocial_linkedin_link').'" class="li" title="LinkedIn" target="_blank">LinkedIn</a>';
+			}
+			if(get_option('msdsocial_twitter_user')!=""){
+			$ret .= '<a href="http://www.twitter.com/'. get_option('msdsocial_twitter_user').'" class="tw" title="Follow Us on Twitter!" target="_blank">Twitter</a>';
+			}
+			if(get_option('msdsocial_google_link')!=""){
+			$ret .= '<a href="'. get_option('msdsocial_google_link').'" class="gl" title="Google+" target="_blank">Google+</a>';
+			}
+			if(get_option('msdsocial_facebook_link')!=""){
+			$ret .= '<a href="'. get_option('msdsocial_facebook_link').'" class="fb" title="Join Us on Facebook!" target="_blank">Facebook</a>';
+			}
+			if(get_option('msdsocial_flickr_link')!=""){
+			$ret .= '<a href="'. get_option('msdsocial_flickr_link').'" class="fl" title="Flickr" target="_blank">Flickr</a>';
+			}
+			if(get_option('msdsocial_vimeo_link')!=""){
+			$ret .= '<a href="'. get_option('msdsocial_vimeo_link').'" class="vm" title="Vimeo" target="_blank">Vimeo</a>';
+			}
+			if(get_option('msdsocial_youtube_link')!=""){
+			$ret .= '<a href="'. get_option('msdsocial_youtube_link').'" class="yt" title="YouTube" target="_blank">YouTube</a>';
+			}
+			if(get_option('msdsocial_sharethis_link')!=""){
+			$ret .= '<a href="'. get_option('msdsocial_sharethis_link').'" class="st" title="ShareThis" target="_blank">ShareThis</a>';
+			}
+			if(get_option('msdsocial_pinterest_link')!=""){
+			$ret .= '<a href="'. get_option('msdsocial_pinterest_link').'" class="pin" title="Pinterest" target="_blank">Pinterest</a>';
+			}
+			if(get_option('msdsocial_show_feed')!=""){
+			$ret .= '<a href="'. bloginfo('rss2_url').'" class="rss" title="RSS Feed" target="_blank">RSS Feed</a>';
+			}
+		$ret .= '</div>';
+		
+		return $ret;
 }
 
 function requireDir($dir){

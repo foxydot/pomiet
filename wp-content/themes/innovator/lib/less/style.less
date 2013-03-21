@@ -434,8 +434,16 @@ h1 {
 	b {color: @green;}
 }
 
+
 h1.entry-title {
+	text-transform: lowercase;
 }
+.section-vision h1.entry-title {color:@green;}
+.section-about h1.entry-title {color:@yellow}
+.section-community h1.entry-title {color:@blue}
+.section-work h1.entry-title {color:@green}
+.section-blog h1.entry-title {color:@blue}
+.section-hello h1.entry-title {color:@green}
 
 .taxonomy-description h1 {
 	margin: 0;
@@ -590,7 +598,7 @@ h5 {
 }
 
 .entry-content img {
-	border: 6px solid @ltgrey;
+	border: 0px solid @ltgrey;
 }
 
 
@@ -911,9 +919,11 @@ input.searchsubmit:hover {
 .aligncenter {text-align: center;margin: 0 auto;display: block;}
 
 /* ETC */
+.entry-content .social-media {display: block; float: none;}
+.entry-content .social-media:after {.clearfix}
 .widgets,.widget-wrap,.widget {position: relative;}
 a.black-link, a.black-link:visited {color:#000;}
-#header a.readmore {.button();float:right;}
+#header a.readmore {.button(@green);float:right;}
 
 .gform_wrapper .ginput_complex .ginput_left, .gform_wrapper .ginput_complex .ginput_right, .gform_wrapper .ginput_complex .ginput_full{min-height: auto !important;}
 
@@ -929,7 +939,14 @@ a.black-link, a.black-link:visited {color:#000;}
 .widget_text, .widget_sp_image{
 	p {font-size: 12px;}
 	 .readmore{
-	.button();
+	.button(@green);
+	}
+}
+#sidebar{
+	.widget_text, .widget_sp_image{
+		 .readmore{
+			.drop-shadow(0,0,2px,0.5);
+		}
 	}
 }
 .widget_advanced_menu .hide-in-side-nav {display:none !important;}
