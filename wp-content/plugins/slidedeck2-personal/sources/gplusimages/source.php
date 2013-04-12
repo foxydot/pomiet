@@ -16,7 +16,7 @@ class SlideDeckSource_GPlusImages extends SlideDeck {
                 'data' => "string"
             ),
             'gplus_max_image_size' => array(
-                'value' => 1024,
+                'value' => 720,
                 'data' => "integer"
             )
         )
@@ -247,7 +247,7 @@ class SlideDeckSource_GPlusImages extends SlideDeck {
     function slidedeck_options( $options, $deprecated, $source ) {
         if( $source == $this->name ) {
             if( isset( $options['gplus_max_image_size'] ) )
-                $options['gplus_max_image_size'] = max( 128, min( (integer) $options['gplus_max_image_size'], 1600 ) );
+                $options['gplus_max_image_size'] = max( 94, min( (integer) $options['gplus_max_image_size'], 1600 ) );
         }
         
         return $options;

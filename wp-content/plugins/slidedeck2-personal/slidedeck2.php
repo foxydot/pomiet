@@ -3,7 +3,7 @@
  Plugin Name: SlideDeck 2 Personal
  Plugin URI: http://www.slidedeck.com/wordpress
  Description: Create SlideDecks on your WordPress blogging platform and insert them into templates and posts. Get started creating SlideDecks from the new SlideDeck menu in the left hand navigation.
- Version: 2.1.20121212
+ Version: 2.1.20130228
  Author: digital-telepathy
  Author URI: http://www.dtelepathy.com
  License: GPL3
@@ -31,15 +31,18 @@ class SlideDeckPlugin {
     var $package_slug = 'single';
     static $namespace = "slidedeck";
     static $friendly_name = "SlideDeck 2";
-	
-	static $cohort_name = 'afe4523';
-	static $cohort_variation = '';
     
-    static $version = '2.1.20121212';
+    static $cohort_name = 'afe4523';
+    static $cohort_variation = '';
+    static $overriding_cohorts = array(
+        'ecf3509'
+    );
+    
+    static $version = '2.1.20130228';
     static $license = 'PRO';
 
-	// Generally, we are not installing addons. If we are, this gets set to true.
-	static $slidedeck_addons_installing = false;
+    // Generally, we are not installing addons. If we are, this gets set to true.
+    static $slidedeck_addons_installing = false;
 
     // Static variable of addons that are currently installed
     static $addons_installed = array( 'tier_10' => 'tier_10' );
@@ -132,7 +135,7 @@ class SlideDeckPlugin {
     var $upgraded_to_tier = false;
     var $highest_tier_install_link = false;
     var $next_available_tier = false;
-	
+    
 
     /**
      * Instantiation construction
@@ -142,8 +145,8 @@ class SlideDeckPlugin {
      * @uses SlideDeckPlugin::wp_register_styles()
      */
     function __construct( ) {
-    	SlideDeckPlugin::load_constants();
-		
+        SlideDeckPlugin::load_constants();
+        
         $this->friendly_name = SlideDeckPlugin::$friendly_name;
         $this->namespace = SlideDeckPlugin::$namespace;
 
@@ -168,8 +171,8 @@ class SlideDeckPlugin {
 
         // The Cover primary class
         if( file_exists( SLIDEDECK2_DIRNAME . '/classes/slidedeck-covers.php' ) ){
-	        include_once (SLIDEDECK2_DIRNAME . '/classes/slidedeck-covers.php');
-	        $this->Cover = new SlideDeckCovers( );
+            include_once (SLIDEDECK2_DIRNAME . '/classes/slidedeck-covers.php');
+            $this->Cover = new SlideDeckCovers( );
         }
 
         // The Lens scaffold
@@ -259,66 +262,66 @@ class SlideDeckPlugin {
 
         // Generate a unique HTML ID
         $slidedeck_unique_id = $this->namespace . '_' . $slidedeck['id'] . '_' . uniqid();
-		
+        
         // Get the inner and outer dimensions for the SlideDeck
         $dimensions = $this->get_dimensions( $slidedeck );
         $ratio = $dimensions['outer_height'] / $dimensions['outer_width'];
         
         // Get the IFRAME source URL
         $iframe_url = $this->get_iframe_url( $id, $dimensions['outer_width'], $dimensions['outer_height'] );
-		$iframe_url .= "&slidedeck_unique_id=" . $slidedeck_unique_id;
-		$iframe_url .= "&start=";
+        $iframe_url .= "&slidedeck_unique_id=" . $slidedeck_unique_id;
+        $iframe_url .= "&start=";
 
         if( $nocovers )
             $iframe_url .= "&nocovers=1";
 
-		if( !$ress ) {
-			/**
-			 * Regular iFrame embed
-			 */
-	        $html = '<div id="' . $slidedeck_unique_id . '-wrapper"><iframe class="slidedeck-iframe-embed" id="' . $slidedeck_unique_id . '" frameborder="0" allowtransparency="yes"  src="' . $iframe_url . '" style="width:' . $dimensions['outer_width'] . 'px;height:' . $dimensions['outer_height'] . 'px;"></iframe></div>';
-		} else {
-			/**
-			 * Setup the RESS Scripts
-			 */
-			$style = ' style="';
-			
-			
-			if( $proportional !== true ) {
-				$style .= "height:{$dimensions['outer_height']}px;";
-			}else{
-				$style .= "height:auto;";
-			}
-			
-			
-			$style .= '"';
-	        $html = '<div id="' . $slidedeck_unique_id . '-wrapper" class="sd2-ress-wrapper"' . $style . '>';
-			$html .= '<dl class="sd2-alternate-hidden-content" style="height:0;overflow:hidden;visibility:hidden;">';
-			
-			$slides = $this->SlideDeck->fetch_and_sort_slides( $slidedeck );
-			$html .= $this->SlideDeck->render_dt_and_dd_elements( $slidedeck, $slides );
-			
-			$html .= '</dl>';
-			$html .= '</div>';
-			
-			$this->footer_styles .= '.sd2-alternate-hidden-content{display:none!important;}';
-			
-			// Setup the RESS properties for this deck
-			$ress_properties = array(
-				'id' => $slidedeck_unique_id,
-				'src' => '',
-				'domain' => $_SERVER['HTTP_HOST'],
-				'element' => $slidedeck_unique_id . '-wrapper',
-				'style' => ''
-			);
-			
-			// Append a footer script for each deck
+        if( !$ress ) {
+            /**
+             * Regular iFrame embed
+             */
+            $html = '<div id="' . $slidedeck_unique_id . '-wrapper"><iframe class="slidedeck-iframe-embed" id="' . $slidedeck_unique_id . '" frameborder="0" allowtransparency="yes"  src="' . $iframe_url . '" style="width:' . $dimensions['outer_width'] . 'px;height:' . $dimensions['outer_height'] . 'px;"></iframe></div>';
+        } else {
+            /**
+             * Setup the RESS Scripts
+             */
+            $style = ' style="';
+            
+            
+            if( $proportional !== true ) {
+                $style .= "height:{$dimensions['outer_height']}px;";
+            }else{
+                $style .= "height:auto;";
+            }
+            
+            
+            $style .= '"';
+            $html = '<div id="' . $slidedeck_unique_id . '-wrapper" class="sd2-ress-wrapper"' . $style . '>';
+            $html .= '<dl class="sd2-alternate-hidden-content" style="height:0;overflow:hidden;visibility:hidden;">';
+            
+            $slides = $this->SlideDeck->fetch_and_sort_slides( $slidedeck );
+            $html .= $this->SlideDeck->render_dt_and_dd_elements( $slidedeck, $slides );
+            
+            $html .= '</dl>';
+            $html .= '</div>';
+            
+            $this->footer_styles .= '.sd2-alternate-hidden-content{display:none!important;}';
+            
+            // Setup the RESS properties for this deck
+            $ress_properties = array(
+                'id' => $slidedeck_unique_id,
+                'src' => '',
+                'domain' => $_SERVER['HTTP_HOST'],
+                'element' => $slidedeck_unique_id . '-wrapper',
+                'style' => ''
+            );
+            
+            // Append a footer script for each deck
             ob_start( );
             include( SLIDEDECK2_DIRNAME . '/views/elements/_ress-js-footer-part.php' );
             $this->footer_scripts .= ob_get_contents( );
             ob_end_clean( );
-			
-		}
+            
+        }
 
         return $html;
     }
@@ -401,9 +404,9 @@ class SlideDeckPlugin {
      * @uses wp_remote_fopen()
      */
     static function activate( ) {
-    	SlideDeckPlugin::load_constants();
-    	include_once( dirname( __FILE__ ) . '/lib/template-functions.php' );
-		
+        SlideDeckPlugin::load_constants();
+        include_once( dirname( __FILE__ ) . '/lib/template-functions.php' );
+        
         if( !is_dir( SLIDEDECK2_CUSTOM_LENS_DIR ) ) {
             if( is_writable( dirname( SLIDEDECK2_CUSTOM_LENS_DIR ) ) ) {
                 mkdir( SLIDEDECK2_CUSTOM_LENS_DIR, 0777 );
@@ -411,7 +414,7 @@ class SlideDeckPlugin {
         }
 
         self::check_plugin_updates( );
-		
+        
 
         $installed_version = get_option( "slidedeck_version", false );
         $installed_license = get_option( "slidedeck_license", false );
@@ -426,9 +429,9 @@ class SlideDeckPlugin {
         // First time installation
         if( !$installed_version ) {
             slidedeck2_km( "SlideDeck Installed", array( 'license' => self::$license, 'version' => self::$version ) );
-			
-			// Setup the cohorts data
-			self::set_cohort_data();
+            
+            // Setup the cohorts data
+            self::set_cohort_data();
         }
 
 
@@ -438,7 +441,7 @@ class SlideDeckPlugin {
              */
             if( version_compare( $installed_version, '2.1', '<' ) ) {
                 if( !class_exists( "SlideDeck" ) ) {
-                    include ( dirname( __FILE__ ) . '/classes/slidedeck.php');
+                    include ( dirname( __FILE__ ) . '/classes/slidedeck.php' );
                 }
                 if( !class_exists( "SlideDeckSlideModel" ) ) {
                     include( dirname( __FILE__ ) . '/sources/custom/slide-model.php' );
@@ -632,23 +635,23 @@ class SlideDeckPlugin {
 
         update_option( "slidedeck_version", self::$version );
         update_option( "slidedeck_license", self::$license );
-		
-		/**
-		 * Installation timestamp: SlideDeck 2
-		 */
-		$existing_timestamp = get_option( 'slidedeck2_installed', false );
-		if( !$existing_timestamp ){
-			update_option( 'slidedeck2_installed', time() );
-		}
-				
-		/**
-		 * Installation timestamp: SlideDeck 2 Paid
-		 */
-		$existing_timestamp = get_option( 'slidedeck2_paid_installed', false );
-		if( !$existing_timestamp ){
-			update_option( 'slidedeck2_paid_installed', time() );
-		}
-		
+        
+        /**
+         * Installation timestamp: SlideDeck 2
+         */
+        $existing_timestamp = get_option( 'slidedeck2_installed', false );
+        if( !$existing_timestamp ){
+            update_option( 'slidedeck2_installed', time() );
+        }
+                
+        /**
+         * Installation timestamp: SlideDeck 2 Paid
+         */
+        $existing_timestamp = get_option( 'slidedeck2_paid_installed', false );
+        if( !$existing_timestamp ){
+            update_option( 'slidedeck2_paid_installed', time() );
+        }
+        
         // Activation
         slidedeck2_km( "SlideDeck Activated", array( 'license' => self::$license, 'version' => self::$version ) );
     }
@@ -784,8 +787,8 @@ class SlideDeckPlugin {
         // Add required JavaScript and Stylesheets for displaying SlideDecks in
         // public view
         add_action( 'wp_print_scripts', array( &$this, 'wp_print_scripts' ) );
-		
-		// Prints some JavaScript constants in the head tag.
+        
+        // Prints some JavaScript constants in the head tag.
         add_action( 'wp_print_scripts', array( &$this, 'print_header_javascript_constants' ) );
 
         // Front-end only actions
@@ -888,9 +891,9 @@ class SlideDeckPlugin {
             'anonymous_stats_optin' => isset( $data['anonymous_stats_optin'] ) && !empty( $data['anonymous_stats_optin'] ) ? true : false,
             'anonymous_stats_has_opted' => true
         );
-        
-        if( $options['anonymous_stats_optin'] === true ) {
-            slidedeck2_km( "SlideDeck Installed", array( 'license' => self::$license, 'version' => self::$version ) );
+
+        if( $options['anonymous_stats_optin'] === true || self::partner_override() ) {
+            slidedeck2_km( "SlideDeck Installed", array( 'license' => self::$license, 'version' => self::$version ), self::partner_override() );
         }
         
         /**
@@ -1335,8 +1338,8 @@ class SlideDeckPlugin {
      */
     function ajax_covers_modal( ) {
         if( !class_exists( 'SlideDeckCovers' ) )
-			return false;
-		
+            return false;
+        
         $slidedeck_id = $_REQUEST['slidedeck'];
 
         $slidedeck = $this->SlideDeck->get( $slidedeck_id );
@@ -1690,36 +1693,36 @@ class SlideDeckPlugin {
             $outer_width = $_GET['outer_width'];
         if( isset( $_GET['outer_height'] ) && is_numeric( $_GET['outer_height'] ) )
             $outer_height = $_GET['outer_height'];
-		
-		$start_slide = false;
+        
+        $start_slide = false;
         if( isset( $_GET['start'] ) && is_numeric( $_GET['start'] ) )
             $start_slide = (int) $_GET['start'];
-		
+        
         $slidedeck = $this->SlideDeck->get( $slidedeck_id );
-		
-		/**
-		 * If there's no width or height specified, we should infer the 
-		 * width and height based on the outer width or outer height.
-		 */
-		if( empty( $width ) || empty( $height ) ) {
-			$slidedeck_dimensions = $this->SlideDeck->get_dimensions( $slidedeck );
-			// $width_diff = $slidedeck_dimensions['outer_width'] - $slidedeck_dimensions['width'];
-			// $height_diff = $slidedeck_dimensions['outer_height'] - $slidedeck_dimensions['height'];
-			
-			if( empty( $width ) ) {
-				$width = $outer_width;
-			}
-				
-			if( empty( $height ) ) {
-				$height = $outer_height;
-			}
-			
-			$slidedeck['options']['size'] = 'custom';
-			$slidedeck['options']['width'] = $width;
-			$slidedeck['options']['height'] = $height;
-			
-		}
-		
+        
+        /**
+         * If there's no width or height specified, we should infer the 
+         * width and height based on the outer width or outer height.
+         */
+        if( empty( $width ) || empty( $height ) ) {
+            $slidedeck_dimensions = $this->SlideDeck->get_dimensions( $slidedeck );
+            // $width_diff = $slidedeck_dimensions['outer_width'] - $slidedeck_dimensions['width'];
+            // $height_diff = $slidedeck_dimensions['outer_height'] - $slidedeck_dimensions['height'];
+            
+            if( empty( $width ) ) {
+                $width = $outer_width;
+            }
+                
+            if( empty( $height ) ) {
+                $height = $outer_height;
+            }
+            
+            $slidedeck['options']['size'] = 'custom';
+            $slidedeck['options']['width'] = $width;
+            $slidedeck['options']['height'] = $height;
+            
+        }
+        
 
         $lens = $this->Lens->get( $slidedeck['lens'] );
         
@@ -1833,7 +1836,7 @@ class SlideDeckPlugin {
         $title = "Choose a source to get started";
         $action = "create";
         $disabled_sources = array( );
-		$slidedeck_id = 0;
+        $slidedeck_id = 0;
 
         if( isset( $_REQUEST['slidedeck'] ) && !empty( $_REQUEST['slidedeck'] ) ) {
             $action = "{$this->namespace}_add_source";
@@ -1955,7 +1958,7 @@ class SlideDeckPlugin {
         $license_key = $_REQUEST['data']['license_key'];
         $install_link = false;
         $installable_addons = false;
-		$cohort_data = self::get_cohort_data();
+        $cohort_data = self::get_cohort_data();
 
         if( isset( $_REQUEST['imback'] ) && $_REQUEST['imback'] === 'true' )
             $this->user_is_back = true;
@@ -1963,35 +1966,35 @@ class SlideDeckPlugin {
         if( isset( $_REQUEST['tier'] ) && !empty( $_REQUEST['tier'] ) )
             $this->upgraded_to_tier = intval( $_REQUEST['tier'] );
 
-		$response = wp_remote_post( SLIDEDECK2_UPDATE_SITE . '/available-addons', array(
-    			'method' => 'POST', 
-    			'timeout' => 4, 
-    			'redirection' => 5, 
-    			'httpversion' => '1.0', 
-    			'blocking' => true,
-    			'headers' => array(
+        $response = wp_remote_post( SLIDEDECK2_UPDATE_SITE . '/available-addons', array(
+                'method' => 'POST', 
+                'timeout' => 4, 
+                'redirection' => 5, 
+                'httpversion' => '1.0', 
+                'blocking' => true,
+                'headers' => array(
                     'SlideDeck-Version' => SLIDEDECK2_VERSION,
                     'User-Agent' => 'WordPress/' . get_bloginfo("version"),
                     'Referer' => get_bloginfo("url"),
                     'Addons' => '1'
                 ),
-    			'body' => array(
-					'key' => md5( $license_key ),
-					'redirect_after' => urlencode( admin_url( '/admin.php?page=' . basename( SLIDEDECK2_BASENAME ) ) ),
-					'installed_addons' => SlideDeckPlugin::$addons_installed,
-					'user_is_back' => $this->user_is_back,
-					'upgraded_to_tier' => $this->upgraded_to_tier,
-					'cohort_data' => $cohort_data,
-				), 
-    			'cookies' => array(),
-    			'sslverify' => false
+                'body' => array(
+                    'key' => md5( $license_key ),
+                    'redirect_after' => urlencode( admin_url( '/admin.php?page=' . basename( SLIDEDECK2_BASENAME ) ) ),
+                    'installed_addons' => SlideDeckPlugin::$addons_installed,
+                    'user_is_back' => $this->user_is_back,
+                    'upgraded_to_tier' => $this->upgraded_to_tier,
+                    'cohort_data' => $cohort_data,
+                ), 
+                'cookies' => array(),
+                'sslverify' => false
             )
         );
-		if( !is_wp_error( $response ) ) {
-			//echo json_decode( $response['body'], true );
-			echo $response['body'];
-		}
-		exit;
+        if( !is_wp_error( $response ) ) {
+            //echo json_decode( $response['body'], true );
+            echo $response['body'];
+        }
+        exit;
     }
 
     /**
@@ -2057,18 +2060,18 @@ class SlideDeckPlugin {
         /**
          * If the lens is compatible with having its JS copied,
          * then we can attempt to do so. The eventual plan is to
-		 * have all lenses support this.
+         * have all lenses support this.
          */
         $lens_whitelist = array(
-	        'block-title',
-	        'fashion',
-	        'half-moon',
-	        'o-town',
-	        'proto',
-        	'tool-kit',
-	        'reporter',
-	        'video'
-		);
+            'block-title',
+            'fashion',
+            'half-moon',
+            'o-town',
+            'proto',
+            'tool-kit',
+            'reporter',
+            'video'
+        );
         if( in_array( $data['lens'], $lens_whitelist ) )
             $replace_js = true;
 
@@ -2105,9 +2108,9 @@ class SlideDeckPlugin {
      * @uses wp_remote_fopen()
      */
     static function deactivate( ) {
-    	SlideDeckPlugin::load_constants();
+        SlideDeckPlugin::load_constants();
         self::check_plugin_updates( );
-		
+        
         include (dirname( __FILE__ ) . '/lib/template-functions.php');
 
         slidedeck2_km( "SlideDeck Deactivated" );
@@ -2302,19 +2305,19 @@ class SlideDeckPlugin {
      * @return string
      */
     function get_license_key( ) {
-    	// Is a license key defined as a constant?
-    	$defined_key = '';
-		if( defined( 'SLIDEDECK_LICENSE_KEY' ) )
-			$defined_key = SLIDEDECK_LICENSE_KEY;
-		
-		// Is there a stored key?
-    	$stored_key = $this->get_option( 'license_key' );
-		
-		// If the stored key is blank, then use the defined key.
-		if( empty( $stored_key ) ){
-			return (string) $defined_key;
-		}
-		
+        // Is a license key defined as a constant?
+        $defined_key = '';
+        if( defined( 'SLIDEDECK_LICENSE_KEY' ) )
+            $defined_key = SLIDEDECK_LICENSE_KEY;
+        
+        // Is there a stored key?
+        $stored_key = $this->get_option( 'license_key' );
+        
+        // If the stored key is blank, then use the defined key.
+        if( empty( $stored_key ) ){
+            return (string) $defined_key;
+        }
+        
         return (string) $stored_key;
     }
 
@@ -2549,21 +2552,21 @@ class SlideDeckPlugin {
 
         $license_key = $this->get_license_key( );
         if( empty( $license_key ) && !isset( $_POST['submit'] ) ) {
-        	if( in_array( 'tier_10', SlideDeckPlugin::$addons_installed ) )
-            	add_action( 'admin_notices', array( &$this, 'license_key_notice' ) );
-			
+            if( in_array( 'tier_10', SlideDeckPlugin::$addons_installed ) )
+                add_action( 'admin_notices', array( &$this, 'license_key_notice' ) );
+            
             return false;
         } else {
             $license_key_status = $this->is_license_key_valid( $license_key );
             $addons_need_installing = false;
-			
-			if( isset( $license_key_status->addons ) ){
-	            foreach( $license_key_status->addons as $addon_key => $addon_data ) {
-	                if( !in_array( $addon_key, self::$addons_installed ) ) {
-	                    $addons_need_installing = true;
-	                }
-	            }
-			}
+            
+            if( isset( $license_key_status->addons ) ){
+                foreach( $license_key_status->addons as $addon_key => $addon_data ) {
+                    if( !in_array( $addon_key, self::$addons_installed ) ) {
+                        $addons_need_installing = true;
+                    }
+                }
+            }
             
             if( $addons_need_installing ) {
                 add_action( 'admin_notices', array( &$this, 'addons_available_message' ) );
@@ -2647,23 +2650,23 @@ class SlideDeckPlugin {
         do_action( "{$this->namespace}_help_tabs", $screen, $action );
     }
 
-	/**
-	 * Load Constants
-	 * 
-	 * Conveninece function to load the constants files for 
-	 * the activation and construct
-	 */
-	static function load_constants() {
-		if( defined( 'SLIDEDECK2_BASENAME' ) )
-			return false;
-		
-		// SlideDeck Plugin Basename
-		define( 'SLIDEDECK2_BASENAME', basename( __FILE__ ) );
-		define( 'SLIDEDECK2_HOOK', preg_replace( "/\.php$/", "", SLIDEDECK2_BASENAME ) );
-		
-		// Include constants file
-		require_once (dirname( __FILE__ ) . '/lib/constants.php');
-	}
+    /**
+     * Load Constants
+     * 
+     * Conveninece function to load the constants files for 
+     * the activation and construct
+     */
+    static function load_constants() {
+        if( defined( 'SLIDEDECK2_BASENAME' ) )
+            return false;
+        
+        // SlideDeck Plugin Basename
+        define( 'SLIDEDECK2_BASENAME', basename( __FILE__ ) );
+        define( 'SLIDEDECK2_HOOK', preg_replace( "/\.php$/", "", SLIDEDECK2_BASENAME ) );
+        
+        // Include constants file
+        require_once (dirname( __FILE__ ) . '/lib/constants.php');
+    }
 
     /**
      * Hook into WordPress media_buttons action
@@ -2672,13 +2675,38 @@ class SlideDeckPlugin {
      * and page editor pages
      */
     function media_buttons( ) {
-        global $post;
-
+        global $post, $wp_version;
+        
         if( in_array( basename( $_SERVER['PHP_SELF'] ), array( 'post-new.php', 'page-new.php', 'post.php', 'page.php' ) ) ) {
             $img = '<img src="' . esc_url( SLIDEDECK2_URLPATH . '/images/icon-15x15.png?v=' . SLIDEDECK2_VERSION ) . '" width="15" height="15" />';
-
-            echo '<a href="' . esc_url( $this->get_insert_iframe_src( ) ) . '" class="thickbox add_slidedeck" id="add_slidedeck" title="' . esc_attr__( 'Insert your SlideDeck', $this->namespace ) . '" onclick="return false;"> ' . $img . '</a>';
+            
+            /**
+             * Use the newer button format for versions of WordPress greater than or equal to 3.5
+             */
+            if ( version_compare( $wp_version, 3.5, '>=' ) ) {
+                echo '<a href="' . esc_url( $this->get_insert_iframe_src( ) ) . '" style="padding-left:0.4em;" class="thickbox add_slidedeck button" id="add_slidedeck" title="' . esc_attr__( 'Insert your SlideDeck', $this->namespace ) . '" onclick="return false;"> ' . $img . __( 'Insert SlideDeck', $this->namespace ) . '</a>';
+            } else {
+                echo '<a href="' . esc_url( $this->get_insert_iframe_src( ) ) . '" class="thickbox add_slidedeck" id="add_slidedeck" title="' . esc_attr__( 'Insert your SlideDeck', $this->namespace ) . '" onclick="return false;"> ' . $img . '</a>';
+            }
         }
+    }
+
+    /**
+     * Check for an override for specific partners
+     *
+     * @uses SlideDeckPlugin::get_cohort_data()
+     * 
+     * @return boolean whether or not this cohort_name should override
+     */
+    static function partner_override() {
+        $cohort = self::get_cohort_data();
+        $cohort_name = ( isset( $cohort['name'] ) && !empty( $cohort['name'] ) ) ? $cohort['name'] : '' ;
+
+        if( in_array( $cohort_name, self::$overriding_cohorts ) ) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -2794,10 +2822,10 @@ class SlideDeckPlugin {
         $stage_backgrounds = $this->stage_backgrounds;
 
         $form_title = apply_filters( "{$namespace}_form_title", __( ucwords( $form_action ) . " SlideDeck", $this->namespace ), $slidedeck, $form_action );
-		
-		$has_saved_covers = false;
-		if( class_exists( 'SlideDeckCovers' ) )
-        	$has_saved_covers = $this->Cover->has_saved_covers( $slidedeck['id'] );
+        
+        $has_saved_covers = false;
+        if( class_exists( 'SlideDeckCovers' ) )
+            $has_saved_covers = $this->Cover->has_saved_covers( $slidedeck['id'] );
 
         $slidedeck_is_dynamic = $this->slidedeck_is_dynamic( $slidedeck );
 
@@ -2891,7 +2919,7 @@ class SlideDeckPlugin {
         $namespace = $this->namespace;
         $plugins = array( );
         $license_key = slidedeck2_get_license_key( );
-		
+        
         /**
          * Here let's set the I'm back variable to true. This allows us to
          * know that they user is expecting a dialog showing the big install
@@ -2903,25 +2931,25 @@ class SlideDeckPlugin {
             $this->user_is_back = true;
 
         if( isset( $_GET['install'] ) && !empty( $_GET['install'] ) ) {
-			
-			// We're doing a SlideDeck addon install.
-			SlideDeckPlugin::$slidedeck_addons_installing = true;
-			include( 'lib/slidedeck-plugin-install.php' );
-			
+            
+            // We're doing a SlideDeck addon install.
+            SlideDeckPlugin::$slidedeck_addons_installing = true;
+            include( 'lib/slidedeck-plugin-install.php' );
+            
             if( isset( $_GET['package'] ) && !empty( $_GET['package'] ) ) {
                 foreach( (array) $_GET['package'] as $package ) {
-					/**
-					 * Some servers don't allow http or https in a querystring.
-					 * Understandable, but since we're logged in for this action, I think 
-					 * it's relatively safe. The woraround is to add the protocol here.
-					 */
-                	if( !preg_match( '/^http|https/', $package ) )
-						$package = 'http://' . $package;
-					
+                    /**
+                     * Some servers don't allow http or https in a querystring.
+                     * Understandable, but since we're logged in for this action, I think 
+                     * it's relatively safe. The woraround is to add the protocol here.
+                     */
+                    if( !preg_match( '/^http|https/', $package ) )
+                        $package = 'http://' . $package;
+                    
                     $plugins[] = $package;
                 }
             }
-			
+            
             $ssl = (isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] == 'on') ? 's' : '';
             $port = ($_SERVER['SERVER_PORT'] != '80') ? ':' . $_SERVER['SERVER_PORT'] : '';
             $url = sprintf( 'http%s://%s%s%s', $ssl, $_SERVER['SERVER_NAME'], $port, $_SERVER['REQUEST_URI'] );
@@ -3008,6 +3036,8 @@ class SlideDeckPlugin {
         }
 
         $is_writable = $this->Lens->is_writable( );
+        
+        $can_edit_lenses = !in_array( self::highest_installed_tier(), array( 'tier_5', 'tier_10', 'tier_20' ) );
 
         include (SLIDEDECK2_DIRNAME . '/views/lenses/manage.php');
     }
@@ -3443,53 +3473,55 @@ class SlideDeckPlugin {
         exit ;
     }
 
-	/**
-	 * Sets up the user's cohort data
-	 * 
-	 * @uses get_option()
-	 * @uses add_option()
-	 */
-	static function set_cohort_data() {
-		$data = array(
-			'name' => self::$cohort_name,
-			'variation' => self::$cohort_variation,
-			'year' => date("Y"),
-			'month' => date("m")
-		);
-		
-		// Only set the cohort if it does not exist. 
-		if( get_option( self::$namespace . '_cohort', false ) === false ) {
-			add_option( self::$namespace . '_cohort', $data );
-		}
-	}
-	
-	/**
-	 * Sets up the user's cohort data
-	 * 
-	 * @uses get_option()
-	 * @uses add_option()
-	 */
-	static function get_cohort_data() {
-		return get_option( self::$namespace . '_cohort', false );
-	}
+    /**
+     * Sets up the user's cohort data
+     * 
+     * @uses get_option()
+     * @uses add_option()
+     */
+    static function set_cohort_data() {
+        $data = array(
+            'name' => self::$cohort_name,
+            'variation' => self::$cohort_variation,
+            'year' => date("Y"),
+            'month' => date("m")
+        );
+        
+        // Only set the cohort if it does not exist. 
+        if( get_option( self::$namespace . '_cohort', false ) === false ) {
+            add_option( self::$namespace . '_cohort', $data );
+        }
+    }
+    
+    /**
+     * Sets up the user's cohort data
+     * 
+     * @uses get_option()
+     * @uses add_option()
+     */
+    static function get_cohort_data() {
+        return get_option( self::$namespace . '_cohort', false );
+    }
 
-	/**
-	 * Outputs the cohort info as a query string
-	 * 
-	 * @param $starting_character
-	 * 
-	 * @uses self::get_cohort_data()
-	 */
-	static function get_cohort_query_string( $starting_character = '?' ) {
-		$cohorts = self::get_cohort_data();
-		$processed = array();
-		foreach( $cohorts as $key => $value ){
-			if( !empty( $value ) ){
-				$processed['cohort_' . $key] = $value;
-			}
-		}
-		return $starting_character . http_build_query( $processed );
-	}
+    /**
+     * Outputs the cohort info as a query string
+     * 
+     * @param $starting_character
+     * 
+     * @uses self::get_cohort_data()
+     */
+    static function get_cohort_query_string( $starting_character = '?' ) {
+        $cohorts = self::get_cohort_data();
+        $processed = array();
+        if( !empty($cohorts ) ) {
+            foreach( $cohorts as $key => $value ){
+                if( !empty( $value ) ){
+                    $processed['cohort_' . $key] = $value;
+                }
+            }
+            return $starting_character . http_build_query( $processed );
+        }
+    }
 
     /**
      * Process the SlideDeck shortcode
@@ -3502,40 +3534,40 @@ class SlideDeckPlugin {
      * @return object The processed shortcode
      */
     function shortcode( $atts ) {
-    	global $post;
-		$default_deck_link_text = '';
-		
-		if( isset( $atts['id'] ) && !empty( $atts['id'] ) )
-    		$default_deck_link_text = get_the_title( $atts['id'] ) . ' <small>[' . __( "see the SlideDeck", $this->namespace ) . ']</small>';
-    	
+        global $post;
+        $default_deck_link_text = '';
+        
+        if( isset( $atts['id'] ) && !empty( $atts['id'] ) )
+            $default_deck_link_text = get_the_title( $atts['id'] ) . ' <small>[' . __( "see the SlideDeck", $this->namespace ) . ']</small>';
+        
         // Filter the shortcode attributes
         $atts = apply_filters( "{$this->namespace}_shortcode_atts", $atts );
         
         extract( shortcode_atts( array(
-	        'id' => (boolean) false,
-	        'width' => null,
-	        'height' => null,
-	        'include_lens_files' => (boolean) true,
-	        'iframe' => (boolean) false,
-	        'ress' => (boolean) false,
-	        'proportional' => (boolean) true,
-	        'feed_link_text' => $default_deck_link_text,
-	        'nocovers' => (boolean) false,
-	        'preview' => (boolean) false,
-	        'echo_js' => (boolean) false,
-	        'start' => false
-		), $atts ) );
-		
+            'id' => (boolean) false,
+            'width' => null,
+            'height' => null,
+            'include_lens_files' => (boolean) true,
+            'iframe' => (boolean) false,
+            'ress' => (boolean) false,
+            'proportional' => (boolean) true,
+            'feed_link_text' => $default_deck_link_text,
+            'nocovers' => (boolean) false,
+            'preview' => (boolean) false,
+            'echo_js' => (boolean) false,
+            'start' => false
+        ), $atts ) );
+        
         // Make sure that the RESS flag is set so we load the necessary assets in the footer
         if( $ress == true ) {
             $this->page_has_ress_deck = true;
         }
         
         if( $id !== false ) {
-			// If this is a feed, just render a link
-			if( $this->is_feed() )
-				return '<div class="slidedeck-link"><a href="' . get_permalink( $post->ID ) . '#SlideDeck-' . $id . '">' . $feed_link_text . '</a></div>';
-		
+            // If this is a feed, just render a link
+            if( $this->is_feed() )
+                return '<div class="slidedeck-link"><a href="' . get_permalink( $post->ID ) . '#SlideDeck-' . $id . '">' . $feed_link_text . '</a></div>';
+        
             if( ( $iframe !== false ) || ( $ress !== false ) ) {
                 return $this->_render_iframe( $id, $width, $height, $nocovers, $ress, $proportional );
             } else {
@@ -3545,25 +3577,25 @@ class SlideDeckPlugin {
             return "";
         }
     }
-	
-	/**
-	 * Is Feed?
-	 * 
-	 * An extension of the is_feed() function.
-	 * We first check WWordPress' built in method and if it passes,
-	 * then we say yes this is a feed. If it fails, we try to detect FeedBurner
-	 * 
-	 * @return boolean
-	 */
-	function is_feed(){
-		if( is_feed() ){
-			return true;
-		}elseif( preg_match( '/feedburner/', strtolower( $_SERVER['HTTP_USER_AGENT'] ) ) ){
-			return true;
-		}
-		return false;
-	}
-	
+    
+    /**
+     * Is Feed?
+     * 
+     * An extension of the is_feed() function.
+     * We first check WWordPress' built in method and if it passes,
+     * then we say yes this is a feed. If it fails, we try to detect FeedBurner
+     * 
+     * @return boolean
+     */
+    function is_feed(){
+        if( is_feed() ){
+            return true;
+        }elseif( preg_match( '/feedburner/', strtolower( $_SERVER['HTTP_USER_AGENT'] ) ) ){
+            return true;
+        }
+        return false;
+    }
+    
     /**
      * Hook into slidedeck_create_custom_slidedeck_block filter
      *
@@ -3588,7 +3620,7 @@ class SlideDeckPlugin {
 
         return $html;
     }
-	
+    
     /**
      * Hook into slidedeck_create_dynamic_slidedeck_block filter
      *
@@ -3692,21 +3724,21 @@ class SlideDeckPlugin {
     }
     
     /**
-	 * After Lenses Hook.
-	 * 
-	 * Outputs additional information about the lenses on the lens list view
-	 * on the SlideDeck options pane, when editing a deck.
-	 */
+     * After Lenses Hook.
+     * 
+     * Outputs additional information about the lenses on the lens list view
+     * on the SlideDeck options pane, when editing a deck.
+     */
     function slidedeck_lens_selection_after_lenses( $lenses, $slidedeck ) {
         $tier = self::highest_installed_tier();
         $lens_slugs = $this->installed_lenses;
         
-    	include( SLIDEDECK2_DIRNAME . '/views/upsells/_upsell-additional-lenses.php' );
+        include( SLIDEDECK2_DIRNAME . '/views/upsells/_upsell-additional-lenses.php' );
     }
     
     /**
-	 * Outputs additional information about the lenses on the lens management page
-	 */
+     * Outputs additional information about the lenses on the lens management page
+     */
     function slidedeck_manage_lenses_after_lenses( $lenses ) {
         
         // Creating an array of slugs only for easier digestion on the lens selection screen
@@ -3715,7 +3747,7 @@ class SlideDeckPlugin {
             array_push( $lens_slugs, $lens['slug']);
         }
         
-    	include( SLIDEDECK2_DIRNAME . '/views/upsells/_upsell-additional-lens-manage.php' );
+        include( SLIDEDECK2_DIRNAME . '/views/upsells/_upsell-additional-lens-manage.php' );
     }
 
     /**
@@ -3768,8 +3800,8 @@ class SlideDeckPlugin {
         
         update_option( $this->option_name, $options );
         
-        if( $options['anonymous_stats_optin'] == true ) {
-            slidedeck2_km( "SlideDeck Installed", array( 'license' => self::$license, 'version' => self::$version ) );
+        if( $options['anonymous_stats_optin'] == true || self::partner_override() ) {
+            slidedeck2_km( "SlideDeck Installed", array( 'license' => self::$license, 'version' => self::$version ), self::partner_override() );
         }
     }
 
@@ -4192,7 +4224,7 @@ class SlideDeckPlugin {
     }
 
 }
-	
+    
 register_activation_hook( __FILE__, array( 'SlideDeckPlugin', 'activate' ) );
 register_deactivation_hook( __FILE__, array( 'SlideDeckPlugin', 'deactivate' ) );
 

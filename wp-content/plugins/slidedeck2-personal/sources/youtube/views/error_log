@@ -1,0 +1,2 @@
+[06-Mar-2013 10:10:30] PHP Fatal error:  Using $this when not in object context in /home3/msdlabco/public_html/pomiet/wp-content/plugins/slidedeck2-personal/sources/youtube/views/show.php on line 38
+[13-Mar-2013 10:54:01] PHP Fatal error:  Using $this when not in object context in /home3/msdlabco/public_html/pomiet/wp-content/plugins/slidedeck2-personal/sources/youtube/views/show.php on line 38

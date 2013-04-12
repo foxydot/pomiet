@@ -617,13 +617,13 @@ class SlideDeckLens {
         $html_string = preg_replace( "/([\n\r]+)/", "", $html_string );
         
         $image_strs = array();
-        preg_match_all( '/<img(\s*([a-zA-Z]+)\=\"([a-zA-Z0-9\/\#\&\=\|\-_\+\%\!\?\:\;\.\(\)\~\s\,]*)\")+\s*\/?>/', $html_string, $image_strs );
-        
+        preg_match_all( '/<img(\s*([a-zA-Z]+)\=[\"\']([a-zA-Z0-9\/\#\&\=\|\-_\+\%\!\?\:\;\.\(\)\~\s\,]*)[\"\'])+\s*\/?>/', $html_string, $image_strs );
+
         $images_all = array();
         if( isset( $image_strs[0] ) && !empty( $image_strs[0] ) ) {
             foreach( (array) $image_strs[0] as $image_str ) {
                 $image_attr = array();
-                preg_match_all( '/([a-zA-Z]+)\=\"([a-zA-Z0-9\/\#\&\=\|\-_\+\%\!\?\:\;\.\(\)\~\s\,]*)\"/', $image_str, $image_attr );
+                preg_match_all( '/([a-zA-Z]+)\=[\"\']([a-zA-Z0-9\/\#\&\=\|\-_\+\%\!\?\:\;\.\(\)\~\s\,]*)[\"\']/', $image_str, $image_attr );
                 
                 if( in_array( 'src', $image_attr[1] ) ) {
                     $images_all[] = array_combine( $image_attr[1], $image_attr[2] );
@@ -653,7 +653,8 @@ class SlideDeckLens {
      */
     function test_image_for_ads_and_tracking( $input_image = "" ) {
         // Filter out advertisements and tracking beacons
-        if( preg_match( '/(tweetmeme|stats|share-buttons|advertisement|feedburner|commindo|valueclickmedia|imediaconnection|adify|traffiq|premiumnetwork|advertisingz|gayadnetwork|vantageous|networkadvertising|advertising|digitalpoint|viraladnetwork|decknetwork|burstmedia|doubleclick).|feeds\.[a-zA-Z0-9\-_]+\.com\/~ff|wp\-digg\-this|feeds\.wordpress\.com|\/media\/post_label_source|ads\.pheedo\.com/i', $input_image ) )
+        $blacklist_regex = apply_filters( "{$this->namespace}_image_blacklist", SLIDEDECK2_IMAGE_BLACKLIST );
+        if( preg_match( $blacklist_regex, $input_image ) )
             return false;
         
         return $input_image;

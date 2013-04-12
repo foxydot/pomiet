@@ -11,19 +11,17 @@
             elems.horizontalSlides = deck.slides;
 		
 		// Only for IE - detect background image url and update style for DD element
-        if( $.browser.msie ){
-        	if( $.browser.version <= 8.0 ){
-        		elems.horizontalSlides.each(function(ind){
-        			if( $(elems.horizontalSlides[ind]).css('background-image') != 'none' ){
-        				var imgurl = $(elems.horizontalSlides[ind]).css('background-image').match( /url\([\"\'](.*)[\"\']\)/ )[1];
-        				$(elems.horizontalSlides[ind]).css({
-        					background: 'none'
-        				});
-        				elems.horizontalSlides[ind].style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + imgurl + "', sizingMethod='scale')";
-        			};
-        		});
-        	}
-        }
+    	if( ie <= 8.0 ){
+    		elems.horizontalSlides.each(function(ind){
+    			if( $(elems.horizontalSlides[ind]).css('background-image') != 'none' ){
+    				var imgurl = $(elems.horizontalSlides[ind]).css('background-image').match( /url\([\"\'](.*)[\"\']\)/ )[1];
+    				$(elems.horizontalSlides[ind]).css({
+    					background: 'none'
+    				});
+    				elems.horizontalSlides[ind].style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + imgurl + "', sizingMethod='scale')";
+    			};
+    		});
+    	}
         
         deck.slides.each(function(ind){            
             var $slide = deck.slides.eq(ind);            

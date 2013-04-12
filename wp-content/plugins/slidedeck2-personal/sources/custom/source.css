@@ -156,7 +156,9 @@
 .slides-sortable li.add-new-slide a.button.purple {
     width: 50px;
     height: 29px;
-    box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+       -moz-box-sizing: content-box;
+            box-sizing: content-box;
     line-height: 15px;
     border-radius: 10px;
 }

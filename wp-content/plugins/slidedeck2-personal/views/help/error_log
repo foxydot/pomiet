@@ -1,0 +1,2 @@
+[06-Mar-2013 04:24:45] PHP Fatal error:  Call to undefined function  admin_url() in /home3/msdlabco/public_html/pomiet/wp-content/plugins/slidedeck2-personal/views/help/faqs.php on line 46
+[10-Mar-2013 10:19:02] PHP Fatal error:  Call to undefined function  admin_url() in /home3/msdlabco/public_html/pomiet/wp-content/plugins/slidedeck2-personal/views/help/faqs.php on line 46

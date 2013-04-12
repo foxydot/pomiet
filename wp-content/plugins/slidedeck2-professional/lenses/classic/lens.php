@@ -108,7 +108,13 @@ class SlideDeckLens_Classic extends SlideDeckLens_Scaffold {
                 'type' => 'select',
                 'weight' => -2
             )
-		)
+		),
+        'Playback' => array(
+            'slideTransition' => array(
+                'type' => 'hidden',
+                'value' => 'slide'
+            )
+        )
     );
     
     function __construct(){

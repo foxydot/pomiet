@@ -1,0 +1,4 @@
+[06-Mar-2013 00:39:59] PHP Fatal error:  Using $this when not in object context in /home3/msdlabco/public_html/pomiet/wp-content/plugins/slidedeck2-personal/views/lenses/manage.php on line 36
+[06-Mar-2013 05:46:23] PHP Fatal error:  Call to undefined function  admin_url() in /home3/msdlabco/public_html/pomiet/wp-content/plugins/slidedeck2-personal/views/lenses/add.php on line 40
+[08-Mar-2013 06:24:56] PHP Fatal error:  Using $this when not in object context in /home3/msdlabco/public_html/pomiet/wp-content/plugins/slidedeck2-personal/views/lenses/manage.php on line 36
+[11-Mar-2013 06:51:51] PHP Fatal error:  Call to undefined function  admin_url() in /home3/msdlabco/public_html/pomiet/wp-content/plugins/slidedeck2-personal/views/lenses/add.php on line 40

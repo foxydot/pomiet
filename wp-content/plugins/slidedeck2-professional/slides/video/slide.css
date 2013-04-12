@@ -140,6 +140,7 @@
 .sd2-show-excerpt .slide-source-custom.slide-type-video.has-excerpt .sd2-node-caption .sd2-slide-text,
 .sd2-show-title .slide-source-custom.slide-type-video .sd2-node-caption,
 .sd2-show-title .slide-source-custom.slide-type-video.has-title .sd2-node-caption .sd2-slide-title { display: block; }
+.no-excerpt.no-title.slide-source-custom.slide-type-video .sd2-node-caption,
 .slide-source-custom.custom-layout-none.slide-type-video .sd2-node-caption { display: none; }
 
 .slide-source-custom.slide-type-video .sd2-node-caption .play-video-alternative { display: none; }

@@ -51,9 +51,9 @@ along with SlideDeck.  If not, see <http://www.gnu.org/licenses/>.
             <li class="gplusphotos max-image-size">
             	<?php 
             		global $SlideDeckPlugin;
-            		$tooltip = sprintf( __( 'Google Allows %1$s to ask for images no larger than the size shown here. %2$s Choose a size appropriate for the deck you\'re making.', $this->namespace ), $SlideDeckPlugin->friendly_name, '<br />' );
+            		$tooltip = sprintf( __( 'Google Allows %1$s to ask for images no larger than the size shown here. Choose a size appropriate for the deck you\'re making.', $this->namespace ), $SlideDeckPlugin->friendly_name );
             	?>
-            	<label class="label" for="options-gplus_max_image_size"><?php _e( "Image Size", $this->namespace ) . '<span class="tooltip" title="' . $tooltip . '"></span>'; ?></label>
+            	<label class="label" for="options-gplus_max_image_size"><?php _e( "Image Size", $this->namespace ); echo '<span class="tooltip" title="' . $tooltip . '"></span>' ?></label>
             	<div class="jqueryui-slider-wrapper">
             		<div id="gplus-image-size-slider" class="image-size-slider"></div>
             		<span class="ui-slider-value gplus-image-size-slider-value"></span>

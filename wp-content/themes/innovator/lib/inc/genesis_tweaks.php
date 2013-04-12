@@ -43,9 +43,21 @@ function custom_breadcrumb_args($args) {
 remove_action( 'genesis_before_post_content', 'genesis_post_info' );
 remove_action( 'genesis_after_post_content', 'genesis_post_meta' );
 
-add_filter('get_the_excerpt','innovator_excerpt');
-function innovator_excerpt( $excerpt ){
-	global $post;
-	$excerpt .= '<p><a href="'.get_permalink($post->ID).'" class="readmore yellowdot">Read More</a></p>';
-	return $excerpt;
+/**
+ * Replace footer
+ */
+//remove_action('genesis_footer','genesis_do_footer');
+//add_action('genesis_footer','enpro_do_footer');
+function enpro_do_footer(){
+	global $msd_social;
+	if(has_nav_menu('footer_library_link')){$copyright .= wp_nav_menu( array( 'theme_location' => 'footer_library_link','container_class' => 'ftr-menu','echo' => FALSE ) ).'<br />';}
+	if($msd_social){
+		$copyright .= '&copy;Copyright '.date('Y').' '.$msd_social->get_bizname().' &middot; All Rights Reserved';
+	} else {
+		$copyright .= '&copy;Copyright '.date('Y').' '.get_bloginfo('name').' &middot; All Rights Reserved ';
+	}
+	if(has_nav_menu('footer_menu')){$copyright .= wp_nav_menu( array( 'theme_location' => 'footer_menu','container_class' => 'ftr-menu ftr-links','echo' => FALSE ) );}
+	print '<div id="copyright" class="copyright gototop">'.$copyright.'</div><div id="social" class="social creds">';
+	if($msd_social){do_shortcode('[msd-social]');}
+	print '</div>';
 }

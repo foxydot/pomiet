@@ -10,18 +10,16 @@
 		// After loaded callback
         deck.loaded(function( thedeck ){
             // Only for IE - detect background image url and update style for DD element
-            if( $.browser.msie ){
-                if( $.browser.version <= 8.0 ){
-                    thedeck.slides.each(function(ind){
-                        if( $(thedeck.slides[ind]).css('background-image') != 'none' ){
-                            var imgurl = $(thedeck.slides[ind]).css('background-image').match( /url\([\"\'](.*)[\"\']\)/ )[1];
-                            $(thedeck.slides[ind]).css({
-                                background: 'none'
-                            });
-                            thedeck.slides[ind].style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + imgurl + "', sizingMethod='crop')";
-                        };
-                    });
-                }
+            if( ie <= 8.0 ){
+                thedeck.slides.each(function(ind){
+                    if( $(thedeck.slides[ind]).css('background-image') != 'none' ){
+                        var imgurl = $(thedeck.slides[ind]).css('background-image').match( /url\([\"\'](.*)[\"\']\)/ )[1];
+                        $(thedeck.slides[ind]).css({
+                            background: 'none'
+                        });
+                        thedeck.slides[ind].style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + imgurl + "', sizingMethod='crop')";
+                    };
+                });
             }
             
             /**

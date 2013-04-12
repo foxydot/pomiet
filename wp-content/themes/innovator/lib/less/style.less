@@ -367,9 +367,6 @@ body {
 
 .entry-content {
 	overflow: hidden;
-	a.readmore.yellowdot {
-		.yellow-button;
-	}
 }
 
 .entry-content p {
@@ -638,52 +635,85 @@ h5 {
 	word-wrap: break-word;
 }
 
-.sidebar.widget-area .widget_advanced_menu {
-	.menu {
-		a:hover {text-decoration: none;}
-		>li{ display: none;}
-		>li.current-menu-ancestor, >li.current-menu-item {
-			display: block;
-			.century;
-			font-size: 1.2em;
-			padding: 0 0 6px;
-			text-transform: uppercase;
-			a{
-				color: @green;
-				border-bottom: 4px solid @medgrey;
+.sidebar.widget-area {
+	.widget_advanced_menu {
+		.menu {
+			a:hover {text-decoration: none;}
+			>li{ display: none;}
+			>li.current-menu-ancestor, >li.current-menu-item {
 				display: block;
-			}
-			ul{
-			padding: 0;
-				li {
-				background: #fff;
-				border-bottom: 1px solid @medgrey;
-				padding: 2px 0;
-				a {
-					.arial;
-					border: none;
-					font-size: .8em;
+				.century;
+				font-size: 1.2em;
+				padding: 0 0 6px;
+				text-transform: uppercase;
+				a{
 					color: @green;
-					text-transform: none;
-					padding-left: 6px;
-					}
+					border-bottom: 4px solid @medgrey;
+					display: block;
+				}
 				ul{
-					padding: 0;
-					border-top: 1px solid @medgrey;
-					li{
-						a{
-					padding-left: 12px;}
+				padding: 0;
+					li {
+					background: #fff;
+					border-bottom: 1px solid @medgrey;
+					padding: 2px 0;
+					a {
+						.arial;
+						border: none;
+						font-size: .8em;
+						color: @green;
+						text-transform: none;
+						padding-left: 6px;
+						}
+					ul{
+						padding: 0;
+						border-top: 1px solid @medgrey;
+						li{
+							a{
+						padding-left: 12px;}
+						}
+						li.last-child {border-bottom: none;}
+						}
 					}
-					li.last-child {border-bottom: none;}
+					li:hover,li.current-menu-item {
+						background: @ltgrey;
 					}
 				}
-				li:hover,li.current-menu-item {
-					background: @ltgrey;
+			}
+		}
+	}
+	.widget_nav_menu{
+		h4 {margin: .5em 0;}
+		.menu {
+			padding:0;
+			margin: 0;
+			li{
+				margin-bottom: 3px;
+				a {
+					background: @medgrey;
+					padding: 6px 24px;
+					.century;
+					color: @white;
+					font-weight: bold;
+				    text-transform: lowercase;
+				    display: table;
+				    margin: 0;
+				    width: 100%;
+				    text-align: center;
+				}
+				a:hover {
+					text-decoration: none;
+				}
+			}
+			li.green {
+				a, a:hover {
+					background: @green;
 				}
 			}
 		}
 	}
 }
+
 /* Form Buttons
 ------------------------------------------------------------ */
 #inner{

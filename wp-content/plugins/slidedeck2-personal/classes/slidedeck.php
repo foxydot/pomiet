@@ -2348,7 +2348,7 @@ class SlideDeck {
                 'link' => "https://twitter.com/intent/tweet",
                 'url_params' => array(
                     'url' => esc_url( $permalink ),
-                    'hashtags' => "slidedeck",
+                    'via' => "slidedeck",
                     'related' => "slidedeck",
                     'text' => $tweet_text
                 ),

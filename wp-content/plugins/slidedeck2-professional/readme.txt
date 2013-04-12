@@ -3,7 +3,7 @@ Contributors: dtelepathy, kynatro, jamie3d, dtrenkner, oriontimbers
 Donate link: http://www.slidedeck.com/
 Tags: Slider, dynamic, slide show, slideshow, widget, Search Engine Optimized, seo, jquery, plugin, pictures, slide, skinnable, skin, posts, video, photo, media, image gallery, iPad, iphone, vertical slides, touch support, theme
 Requires at least: 3.3
-Tested up to: 3.5
+Tested up to: 3.5.1
 Stable tag: trunk
 
 Create SlideDecks on your WordPress blogging platform. Manage SlideDeck content and insert them into templates and posts.
@@ -21,6 +21,16 @@ The SlideDeck 2 Developers Addon adds the ability to edit lenses, copy lenses as
 * [Support](http://dtelepathy.zendesk.com/)
 
 == Changelog ==
+= 2.1.20130228 =
+* Adjusting the Classic lens so it has no variations.
+
+= 2.1.20130219 =
+* Updated custom slide CSS for videos to fix an issue where the sd2-node-caption was showing up even though there was no content
+* Fixed an issue with the classic lens where it was possible to choose an incompatible slide transition
+
+= 2.1.20130116 =
+* Updated version number to keep parity with core
+
 = 2.1.20121212 =
 * Fixed a an issue with video IDs containing double underscores and how they were handled
 

@@ -9,7 +9,7 @@ header iframe.slidedeck-iframe-embed { margin: 0; }
 	overflow: hidden;
 	width: 960px;
 	height: 650px;
-	margin: 0 auto;
+	margin: 0;
 }
 .lens-fashion dl.slidedeck {
 	position:relative;
