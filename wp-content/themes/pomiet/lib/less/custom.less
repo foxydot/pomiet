@@ -1,0 +1,207 @@
+header.site-header,nav.nav-primary,footer.site-footer{
+  .wrap{
+    max-width: 1140px;
+  }
+}
+
+header.site-header{
+  z-index: 1000;
+  .site-title{
+    a{
+      z-index: 1000;
+    }
+  }
+}
+
+.nav-primary{
+  .wrap{
+    ul{
+      li.right{
+        padding: 10px;
+        padding: 1rem;
+        div.digits{
+          display: inline;
+          padding: 0 1rem;
+          .customsansserif;
+          label{
+            display: none;
+          }
+        }
+        div.social-media{
+          display: inline;
+          a{
+            font-family: FontAwesome;
+            display: inline;
+            background: none;
+            padding: 0 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+section.banner{
+  .wrap{
+    .theborder;
+    height: 300px;
+    padding: 70px 500px 50px 140px;
+    h3,h4{
+      .customsansserif();
+      color: @white;
+    }
+    h3{
+      font-size: 4.8rem;
+      font-weight: 200;
+    }
+    h4{
+      font-size: 2.4rem;
+      line-height: 2.4rem;
+      font-weight: 700;
+    }
+  }
+}
+.sidebar-secondary{
+  padding-right: 0;
+  section.widget{
+    border: 0.5px solid @ltgrey;
+    background: lighten(@beige, 20%);
+    h4.widgettitle{
+      padding: 0.8rem;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 400;
+      border-bottom: 3px solid @green;
+      color: @dkgrey;
+      background: @white;
+      margin: 0;
+    }
+    .gform_wrapper{
+      form{
+        .gform_body{
+          ul{
+            li{
+              margin: 1rem !important;
+              input[type="email"], input[type="text"], textarea, .ginput_complex label {
+                padding: 0.4rem;
+                font-size: 1.2rem;
+                text-transform: uppercase;
+              }
+            }
+          }
+        }
+        .gform_footer{
+          margin: 0;
+          padding: 0 1rem;
+        }
+      }
+    }
+  }
+  section.widget.you-can-help{
+    background: @beige;
+    h4.widgettitle{
+      border-bottom-color: @brown;
+    }
+    .text-body{
+      padding: 1rem;
+      color: @white;
+    }
+  }
+  section.widget.donate-today{
+    a.button{
+      margin: 0;
+      width: 100%;
+      border: 0;
+      text-align: center;
+      font-size: 18px;
+      font-size: 1.8rem;
+    }
+  }
+}
+
+.sidebar-primary,.post-type-archive-ambassador .sidebar-secondary{
+  padding-left: 0;
+  .make-md-column(3);
+  .widget_advanced_menu{
+    .menu{
+      >li{
+        display: none;
+      }
+      >li.current-menu-item,>li.current-menu-ancestor{
+        display: block;
+        a{
+          text-decoration: none;
+          font-size: 18px;
+          font-size: 1.8rem;
+          border-bottom: 0;
+          text-transform: uppercase;
+        }
+        li{
+          a{
+            border: 0.5px solid @ltgrey;
+            border-right: 3px solid @beige;
+            padding: 1rem;
+            text-transform: uppercase;
+            display: block; 
+            width: 100%;
+            color: @beige;
+            font-size: 12px;
+            font-size: 1.2rem;
+            font-weight: 400;
+            i{
+              margin-right: 2rem;
+              font-size: 14px;
+              font-size: 1.4rem;
+            }
+          a:hover{
+            background: lighten(@ltgrey,10%);
+            text-decoration: none;
+           }
+          }
+        }
+        li.current-menu-item{
+          a{
+            border-right-color: @brown;
+            color: @green;
+          }
+        }
+      }
+    }
+  }
+}
+.entry-content{
+  .gform_wrapper{
+    input[type='submit'],input[type='button']{
+      width: auto;
+    }
+  }
+}
+.single-ambassador{
+  .banner{
+    .wrap{
+      background-color: @green;
+      position: relative;
+      img{
+        position: absolute;
+        top: 1.5rem;
+        left: 50%;
+        border: 1px solid @white; 
+      }      
+    }
+  }
+}
+.post-type-archive-ambassador{
+  .content-sidebar-wrap{
+    .content{
+      article{
+        .make-md-column(3);
+        background: @ltbeige;
+        border: 4px solid @white;
+        text-align: center;
+        .entry-title{
+          margin: 0.6rem 0;
+        }
+      }
+    }
+  }
+}

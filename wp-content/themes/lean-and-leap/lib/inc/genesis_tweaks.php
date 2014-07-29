@@ -3,7 +3,7 @@ require_once('genesis_tweak_functions.php');
 /*** GENERAL ***/
 add_theme_support( 'html5' );//* Add HTML5 markup structure
 add_theme_support( 'genesis-responsive-viewport' );//* Add viewport meta tag for mobile browsers
-add_theme_support( 'custom-background' );//* Add support for custom background
+add_theme_support( 'genesis-structural-wraps', array( 'header', 'nav', 'subnav', 'inner', 'footer-widgets', 'footer' ) );
 
 /*** HEADER ***/
 add_action('wp_head','msdlab_add_apple_touch_icons');
@@ -14,6 +14,7 @@ add_action('genesis_before_header','msdlab_pre_header');
 /**
  * Move secodary nav into pre-header
  */
+ 
 remove_action( 'genesis_after_header', 'genesis_do_subnav' );
 add_action( 'msdlab_pre_header', 'genesis_do_subnav' );
 add_action('msdlab_pre_header','msdlab_header_right');
@@ -26,7 +27,7 @@ add_action('genesis_after_header','msdlab_page_banner');
  * Move nav into header
  */
 remove_action( 'genesis_after_header', 'genesis_do_nav' );
-add_action( 'genesis_header', 'genesis_do_nav' );
+add_action( 'genesis_before_header', 'genesis_do_nav' );
 
 /*** SIDEBARS ***/
 add_action('genesis_before', 'msdlab_ro_layout_logic'); //This ensures that the primary sidebar is always to the left.

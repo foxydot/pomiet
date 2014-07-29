@@ -3,20 +3,28 @@
 ------------------------------------------------------------ */
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,600,700,400italic,600italic);
 
 /* Font Stacks */
-.opensans {
-	font-family: "Open Sans", "Trebuchet MS", Calibri, sans-serif;
+.customsansserif(@size:1.6) {
+  font-family: "Titillium Web","Open Sans", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 400;
+  font-size: (@size*10)px;
+  font-size: @size rem;
 }
-.arial {
-    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+
+.arial(@size:1.6) {
+  font-family: "Trebucet MS","Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: (@size*10)px;
+  font-size: @size rem;
 }
 
 /* Colors */
 @red: #f00;
 @orange: #f90;
 @yellow: #ff0;
-@green: #0f0;
+@green: #8B9137;
 @blue: #00f;
 @purple: #90f;
 @beige: #c96;
@@ -49,6 +57,11 @@
 /* Gradients */
 .quickgradient(@color) {
 	.gradient(@color,darken(@color,20%),lighten(@color,20%));
+}
+
+.theborder{
+  border: 1px solid @white;
+  border-top: 0;
 }
 
 /* Buttons */

@@ -1,16 +1,15 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,600,700,400italic,600italic);
 /* Import Fonts
 ------------------------------------------------------------ */
 /* Font Stacks */
-.opensans {
-  font-family: "Open Sans", "Trebuchet MS", Calibri, sans-serif;
-}
-.arial {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
 /* Colors */
 /* Neutrals */
 /* Gradients */
+.theborder {
+  border: 1px solid #ffffff;
+  border-top: 0;
+}
 /* Buttons */
 .button:hover,
 .button:visited,
