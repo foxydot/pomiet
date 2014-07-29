@@ -93,6 +93,33 @@ function msd_remove_msword_formatting($content){
 	$content = wp_kses($content,$allowedposttags);
 	return $content;
 }
+add_action('init','msd_allow_all_embeds');
+function msd_allow_all_embeds(){
+	global $allowedposttags;
+	$allowedposttags["iframe"] = array(
+			"src" => array(),
+			"height" => array(),
+			"width" => array()
+	);
+	$allowedposttags["object"] = array(
+			"height" => array(),
+			"width" => array()
+	);
+
+	$allowedposttags["param"] = array(
+			"name" => array(),
+			"value" => array()
+	);
+
+	$allowedposttags["embed"] = array(
+			"src" => array(),
+			"type" => array(),
+			"allowfullscreen" => array(),
+			"allowscriptaccess" => array(),
+			"height" => array(),
+			"width" => array()
+	);
+}
 //shortcodes in widgets
 add_filter('widget_text', 'do_shortcode');
 
