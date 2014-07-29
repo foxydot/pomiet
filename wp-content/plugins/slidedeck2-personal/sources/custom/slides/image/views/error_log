@@ -1,6 +1,0 @@
-[06-Mar-2013 11:37:02] PHP Fatal error:  Call to undefined function  admin_url() in /home3/msdlabco/public_html/pomiet/wp-content/plugins/slidedeck2-personal/sources/custom/slides/image/views/_image-upload-html4-form.php on line 5
-[06-Mar-2013 11:37:03] PHP Fatal error:  Call to undefined function  admin_url() in /home3/msdlabco/public_html/pomiet/wp-content/plugins/slidedeck2-personal/sources/custom/slides/image/views/_image-upload.php on line 2
-[06-Mar-2013 11:37:04] PHP Fatal error:  Call to undefined function  _e() in /home3/msdlabco/public_html/pomiet/wp-content/plugins/slidedeck2-personal/sources/custom/slides/image/views/show.php on line 10
-[18-Mar-2013 06:51:17] PHP Fatal error:  Call to undefined function  admin_url() in /home3/msdlabco/public_html/pomiet/wp-content/plugins/slidedeck2-personal/sources/custom/slides/image/views/_image-upload.php on line 2
-[18-Mar-2013 07:31:31] PHP Fatal error:  Call to undefined function  _e() in /home3/msdlabco/public_html/pomiet/wp-content/plugins/slidedeck2-personal/sources/custom/slides/image/views/show.php on line 10
-[18-Mar-2013 09:44:07] PHP Fatal error:  Call to undefined function  admin_url() in /home3/msdlabco/public_html/pomiet/wp-content/plugins/slidedeck2-personal/sources/custom/slides/image/views/_image-upload-html4-form.php on line 5

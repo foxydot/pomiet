@@ -1,6 +1,0 @@
-[06-Mar-2013 09:50:59] PHP Fatal error:  Call to undefined function  get_the_title() in /home3/msdlabco/public_html/pomiet/wp-content/plugins/slidedeck2-personal/sources/custom/views/slide-editor.php on line 1
-[06-Mar-2013 09:56:02] PHP Fatal error:  Call to undefined function  _e() in /home3/msdlabco/public_html/pomiet/wp-content/plugins/slidedeck2-personal/sources/custom/views/choose-type.php on line 3
-[06-Mar-2013 10:54:02] PHP Fatal error:  Call to undefined function  wp_nonce_url() in /home3/msdlabco/public_html/pomiet/wp-content/plugins/slidedeck2-personal/sources/custom/views/slides.php on line 24
-[13-Mar-2013 07:11:51] PHP Fatal error:  Call to undefined function  get_the_title() in /home3/msdlabco/public_html/pomiet/wp-content/plugins/slidedeck2-personal/sources/custom/views/slide-editor.php on line 1
-[13-Mar-2013 08:30:23] PHP Fatal error:  Call to undefined function  _e() in /home3/msdlabco/public_html/pomiet/wp-content/plugins/slidedeck2-personal/sources/custom/views/choose-type.php on line 3
-[13-Mar-2013 16:03:02] PHP Fatal error:  Call to undefined function  wp_nonce_url() in /home3/msdlabco/public_html/pomiet/wp-content/plugins/slidedeck2-personal/sources/custom/views/slides.php on line 24
