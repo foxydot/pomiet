@@ -1463,6 +1463,17 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
+	"\/lib\/img\/bkg-nav.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 703,
+		"inputAbbreviatedPath": "\/lib\/img\/bkg-nav.png",
+		"outputAbbreviatedPath": "\/lib\/img\/bkg-nav.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/lib\/img\/bkg-search.png": {
 		"fileType": 32768,
 		"ignore": 0,

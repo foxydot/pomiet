@@ -4,7 +4,8 @@ require_once('genesis_tweak_functions.php');
 add_theme_support( 'html5' );//* Add HTML5 markup structure
 add_theme_support( 'genesis-responsive-viewport' );//* Add viewport meta tag for mobile browsers
 add_theme_support( 'genesis-structural-wraps', array( 'header', 'nav', 'subnav', 'inner', 'footer-widgets', 'footer' ) );
-
+//* Remove the header right widget area
+unregister_sidebar( 'header-right' );
 /*** HEADER ***/
 add_action('wp_head','msdlab_add_apple_touch_icons');
 add_filter( 'genesis_search_text', 'msdlab_search_text' ); //customizes the serach bar placeholder
@@ -16,11 +17,6 @@ add_action('genesis_before_header','msdlab_pre_header');
  */
  
 remove_action( 'genesis_after_header', 'genesis_do_subnav' );
-add_action( 'msdlab_pre_header', 'genesis_do_subnav' );
-add_action('msdlab_pre_header','msdlab_header_right');
-
-
-add_action('genesis_after_header','msdlab_page_banner');
 
 /*** NAV ***/
 /**
@@ -37,7 +33,10 @@ add_filter('widget_text', 'do_shortcode');//shortcodes in widgets
 /*** CONTENT ***/
 add_filter('genesis_breadcrumb_args', 'msdlab_breadcrumb_args'); //customize the breadcrumb output
 remove_action('genesis_before_loop', 'genesis_do_breadcrumbs'); //move the breadcrumbs 
-add_action('genesis_before_content_sidebar_wrap', 'genesis_do_breadcrumbs'); //to outside of the loop area
+add_action('genesis_after_header', 'msdlab_taxonomy_title_description');
+remove_action( 'genesis_before_loop', 'genesis_do_taxonomy_title_description', 15 );
+
+//add_action('genesis_before_content_sidebar_wrap', 'genesis_do_breadcrumbs'); //to outside of the loop area
 
 remove_action( 'genesis_before_post_content', 'genesis_post_info' ); //remove the info (date, posted by,etc.)
 remove_action( 'genesis_after_post_content', 'genesis_post_meta' ); //remove the meta (filed under, tags, etc.)

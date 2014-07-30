@@ -1,6 +1,6 @@
 header.site-header,nav.nav-primary,footer.site-footer{
   .wrap{
-    max-width: 1140px;
+    max-width: 960px;
   }
 }
 
@@ -41,23 +41,20 @@ header.site-header{
   }
 }
 
-section.banner{
+.archive-description{
+  background: @medgrey;
   .wrap{
-    .theborder;
-    height: 300px;
-    padding: 70px 500px 50px 140px;
-    h3,h4{
-      .customsansserif();
+    h1.archive-title{
       color: @white;
+      .customsansserif(5.6);
+      font-weight: 600;
     }
-    h3{
-      font-size: 4.8rem;
-      font-weight: 200;
+    .tax-intro-text{
+      .customsansserif(1.8);
+      color: @dkgrey;
+      font-style: italic;
     }
-    h4{
-      font-size: 2.4rem;
-      line-height: 2.4rem;
-      font-weight: 700;
+    .tax-intro-headline,.tax-intro-text{
     }
   }
 }

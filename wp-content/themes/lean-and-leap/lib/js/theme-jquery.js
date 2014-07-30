@@ -15,7 +15,7 @@ jQuery(document).ready(function($) {
 	});
 	// add target="_blank" to all *external* 
     var internal_urls = Array('truepoint.oc','72.52.131.35','truepointwealth.com','truepointinc.com');
-    $('a').attr('target',function(){
+   /* $('a').attr('target',function(){
         var url = $(this).attr('href');
         var target = $(this).attr('target');
         if(url == '#' || strripos(url,'http',0)===false){
@@ -30,7 +30,7 @@ jQuery(document).ready(function($) {
             }
             return '_blank';
         }
-    });
+    });*/
 });
 function strripos(haystack, needle, offset) {
   //  discuss at: http://phpjs.org/functions/strripos/

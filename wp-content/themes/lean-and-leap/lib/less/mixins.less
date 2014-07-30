@@ -9,24 +9,24 @@
 .customsansserif(@size:1.6) {
   font-family: "Titillium Web","Open Sans", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
-  font-size: (@size*10)px;
-  font-size: @size rem;
+  font-size: unit((@size*10),px);
+  font-size: unit(@size,rem);
 }
 
 .arial(@size:1.6) {
   font-family: "Trebucet MS","Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: 400;
-  font-size: (@size*10)px;
-  font-size: @size rem;
+  font-size: unit((@size*10),px);
+  font-size: unit(@size,rem);
 }
 
 /* Colors */
 @red: #f00;
-@orange: #f90;
+@orange: #7F80A2;
 @yellow: #ff0;
-@green: #8B9137;
+@green: #BEBE14;
 @blue: #00f;
-@purple: #90f;
+@purple: #7F80A2;
 @beige: #c96;
 @brown: #630;
 
@@ -37,7 +37,7 @@
 @ltyellow: lighten(@yellow,20%);
 @dkyellow: darken(@yellow, 20%);
 @ltgreen: lighten(@green,20%);
-@dkgreen: darken(@green, 20%);
+@dkgreen: darken(@green, 10%);
 @ltblue: lighten(@blue,20%);
 @dkblue: darken(@blue, 20%);
 @ltpurple: lighten(@purple,20%);
@@ -49,9 +49,9 @@
 
 /* Neutrals */
 @white: #FFF;
-@ltgrey: #CCC;
-@medgrey: #999;
-@dkgrey: #666;
+@ltgrey: #EBEBE9;
+@medgrey: #C0BDB8;
+@dkgrey: #333;
 @black: #000;
 
 /* Gradients */

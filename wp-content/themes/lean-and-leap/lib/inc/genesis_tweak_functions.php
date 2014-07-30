@@ -128,6 +128,34 @@ function msdlab_breadcrumb_args($args) {
     $args['sep'] = ' > ';
     return $args;
 }
+
+function msdlab_taxonomy_title_description(){
+    global $wp_query;
+
+    if ( ! is_category() && ! is_tag() && ! is_tax() )
+        return;
+
+    if ( get_query_var( 'paged' ) >= 2 )
+        return;
+
+    $term = is_tax() ? get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ) : $wp_query->get_queried_object();
+
+    if ( ! $term || ! isset( $term->meta ) )
+        return;
+        
+    $headline = $intro_text = '';
+
+    if ( $term->meta['headline'] )
+        $headline = sprintf( '<div class="col-sm-5 tax-intro-headline"><h1 class="archive-title">%s</h1></div>', strip_tags( $term->meta['headline'] ) );
+    if ( $term->meta['intro_text'] )
+        $intro_text = '<div class="col-sm-7 tax-intro-text">'.apply_filters( 'genesis_term_intro_text_output', $term->meta['intro_text'] ).'</div>';
+
+    if ( $headline || $intro_text )
+        printf( '<div class="archive-description taxonomy-description"><div class="wrap row">%s</div></div>', $headline . $intro_text );
+
+    
+}
+
 function msdlab_older_link_text() {
         $olderlink = 'Older Posts &raquo;';
         return $olderlink;

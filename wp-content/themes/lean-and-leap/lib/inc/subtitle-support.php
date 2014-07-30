@@ -14,7 +14,7 @@ function add_custom_metaboxes(){
     $subtitle_metabox = new WPAlchemy_MetaBox(array
     (
         'id' => '_subtitle',
-        'title' => 'Subtitle',
+        'title' => 'Header',
         'types' => array('post','page'),
         'context' => 'normal', // same as above, defaults to "normal"
         'priority' => 'high', // same as above, defaults to "high"

@@ -825,13 +825,7 @@ Site Header
 /* Widget Area
 --------------------------------------------- */
 .site-header .widget-area {
-  float: right;
-  text-align: right;
-  width: 800px;
-}
-.header-image .site-header .widget-area {
-  padding: 40px 0;
-  padding: 4rem 0;
+  display: none;
 }
 .site-header .search-form {
   float: right;
@@ -846,8 +840,8 @@ Site Navigation
   color: #999;
   font-family: "Trebucet MS", "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: 400;
-  font-size: 16 px;
-  font-size: 1.6 rem;
+  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 1.5;
   width: 100%;
 }
@@ -948,14 +942,18 @@ Site Navigation
   padding-left: 180px;
   text-align: right;
 }
+.nav-primary .wrap > ul li {
+  text-align: center;
+}
 .nav-primary .wrap > ul li a {
   font-family: "Trebucet MS", "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: 400;
-  font-size: 180px px;
-  font-size: 18px rem;
-  padding: 1rem 1rem 1.2rem 1rem;
+  font-size: 18px;
+  font-size: 1.8rem;
+  padding: 3.6rem 2rem 1.2rem 2rem;
   font-weight: 500;
   color: #ffffff;
+  min-width: 10.5rem;
 }
 .nav-primary .wrap > ul li .sub-menu {
   background: #663300;
@@ -971,10 +969,10 @@ Site Navigation
 }
 .nav-primary a:hover,
 .nav-primary .current-menu-item > a {
-  color: #ff9900;
+  background: url(../img/bkg-nav.png) no-repeat center top;
 }
 .nav-primary .sub-menu a:hover {
-  color: #ff9900;
+  color: #7f80a2;
 }
 /* Secondary Navigation
 --------------------------------------------- */
@@ -1261,7 +1259,7 @@ Site Footer
 header.site-header .wrap,
 nav.nav-primary .wrap,
 footer.site-footer .wrap {
-  max-width: 1140px;
+  max-width: 960px;
 }
 header.site-header {
   z-index: 1000;
@@ -1278,8 +1276,8 @@ header.site-header .site-title a {
   padding: 0 1rem;
   font-family: "Titillium Web", "Open Sans", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
-  font-size: 16 px;
-  font-size: 1.6 rem;
+  font-size: 16px;
+  font-size: 1.6rem;
 }
 .nav-primary .wrap ul li.right div.digits label {
   display: none;
@@ -1293,34 +1291,30 @@ header.site-header .site-title a {
   background: none;
   padding: 0 0.5rem;
 }
-section.banner .wrap {
-  border: 1px solid #ffffff;
-  border-top: 0;
-  height: 300px;
-  padding: 70px 500px 50px 140px;
+.archive-description {
+  background: #c0bdb8;
 }
-section.banner .wrap h3,
-section.banner .wrap h4 {
+.archive-description .wrap h1.archive-title {
+  color: #ffffff;
   font-family: "Titillium Web", "Open Sans", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
-  font-size: 16 px;
-  font-size: 1.6 rem;
-  color: #ffffff;
+  font-size: 56px;
+  font-size: 5.6rem;
+  font-weight: 600;
 }
-section.banner .wrap h3 {
-  font-size: 4.8rem;
-  font-weight: 200;
-}
-section.banner .wrap h4 {
-  font-size: 2.4rem;
-  line-height: 2.4rem;
-  font-weight: 700;
+.archive-description .wrap .tax-intro-text {
+  font-family: "Titillium Web", "Open Sans", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  font-size: 1.8rem;
+  color: #333333;
+  font-style: italic;
 }
 .sidebar-secondary {
   padding-right: 0;
 }
 .sidebar-secondary section.widget {
-  border: 0.5px solid #cccccc;
+  border: 0.5px solid #ebebe9;
   background: #e6ccb3;
 }
 .sidebar-secondary section.widget h4.widgettitle {
@@ -1328,8 +1322,8 @@ section.banner .wrap h4 {
   text-align: center;
   text-transform: uppercase;
   font-weight: 400;
-  border-bottom: 3px solid #8b9137;
-  color: #666666;
+  border-bottom: 3px solid #bebe14;
+  color: #333333;
   background: #ffffff;
   margin: 0;
 }
@@ -1386,7 +1380,7 @@ section.banner .wrap h4 {
 }
 .sidebar-primary .widget_advanced_menu .menu > li.current-menu-item li a,
 .sidebar-primary .widget_advanced_menu .menu > li.current-menu-ancestor li a {
-  border: 0.5px solid #cccccc;
+  border: 0.5px solid #ebebe9;
   border-right: 3px solid #cc9966;
   padding: 1rem;
   text-transform: uppercase;
@@ -1405,13 +1399,13 @@ section.banner .wrap h4 {
 }
 .sidebar-primary .widget_advanced_menu .menu > li.current-menu-item li a a:hover,
 .sidebar-primary .widget_advanced_menu .menu > li.current-menu-ancestor li a a:hover {
-  background: #e6e6e6;
+  background: #ffffff;
   text-decoration: none;
 }
 .sidebar-primary .widget_advanced_menu .menu > li.current-menu-item li.current-menu-item a,
 .sidebar-primary .widget_advanced_menu .menu > li.current-menu-ancestor li.current-menu-item a {
   border-right-color: #663300;
-  color: #8b9137;
+  color: #bebe14;
 }
 .entry-content .gform_wrapper input[type='submit'],
 .entry-content .gform_wrapper input[type='button'] {

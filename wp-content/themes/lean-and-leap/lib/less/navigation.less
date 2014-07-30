@@ -5,7 +5,7 @@ Site Navigation
 .genesis-nav-menu {
   clear: both;
   color: #999;
-  .arial;
+  .arial();
   line-height: 1.5;
   width: 100%;
 }
@@ -129,11 +129,13 @@ Site Navigation
       padding-left: 180px;
       text-align: right;
       li{
+        text-align: center;
         a{
-          .arial(18px);
-          padding: 1rem 1rem 1.2rem 1rem;
+          .arial(1.8);
+          padding: 3.6rem 2rem 1.2rem 2rem;
           font-weight: 500;
           color: @white;
+          min-width: 10.5rem;
         }
         .sub-menu{
           background: @brown;
@@ -156,7 +158,7 @@ Site Navigation
 
 .nav-primary a:hover,
 .nav-primary .current-menu-item > a {
-  color: @orange;
+  background: url(../img/bkg-nav.png) no-repeat center top;
 }
 
 .nav-primary .sub-menu a:hover {
