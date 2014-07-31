@@ -63,3 +63,6 @@ function msdlab_mailto_function($atts, $content){
 add_shortcode('columns','column_shortcode');
 
 add_shortcode('sitemap','msdlab_sitemap');
+
+add_shortcode('year','msdlab_year');
+function msdlab_year($atts){return date('Y');}

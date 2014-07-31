@@ -171,6 +171,8 @@ function msdlab_newer_link_text() {
  * Footer replacement with MSDSocial support
  */
 function msdlab_do_social_footer(){
+    global $shortcode_tags;
+    ts_data($shortcode_tags);
     global $msd_social;
     if(has_nav_menu('footer_menu')){$footer_menu .= wp_nav_menu( array( 'theme_location' => 'footer_menu','container_class' => 'ftr-menu ftr-links','echo' => FALSE ) );}
     
