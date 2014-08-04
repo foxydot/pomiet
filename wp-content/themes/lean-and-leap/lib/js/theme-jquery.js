@@ -13,6 +13,15 @@ jQuery(document).ready(function($) {
 			return '<li class="separator">|</li>';
 		}
 	});
+	
+    var formwrapper = $('.footer-widgets .connected-form .gform_wrapper');
+    $('.footer-widgets .connected-form h4,.footer-widgets .connected-form .gform_post_footer .button,.footer-widgets .connected-form .gform_post_footer .button').click(function(){
+        if(!formwrapper.hasClass('open_form')){
+            formwrapper.addClass('open_form');
+        } else {
+            formwrapper.removeClass('open_form');
+        }
+    });
 	// add target="_blank" to all *external* 
     var internal_urls = Array('truepoint.oc','72.52.131.35','truepointwealth.com','truepointinc.com');
    /* $('a').attr('target',function(){

@@ -17,33 +17,34 @@ class MSDConnected extends WP_Widget {
 		$text = apply_filters( 'widget_text', empty( $instance['text'] ) ? '' : $instance['text'], $instance );
 		echo $before_widget;
 		if ( !empty( $title ) ) { print $before_title.$title.$after_title; } 
-        if ( !empty( $text )){ print '<div class="connected-text">'.$text.'</div>'; }
-        if ( $form_id > 0 ){
-            print '<div class="connected-form">';
-            print do_shortcode('[gravityform id="'.$form_id.'" title="false" description="false" ajax="true"]');
-            print '</div>';
-        }
+        
+        if ( $social ){
+            $social = do_shortcode('[msd-social]');
+            if( $social ){ print '<div class="connected-social col-sm-2 col-xs-12">'.$social.'</div>'; }
+        }   
         
         if ( $address ){
             $address = do_shortcode('[msd-address]'); 
             if ( $address ){
-                print '<div class="connected-address">'.$address.'</div>';
+                $address = do_shortcode('[msd-bizname]').$address;
+                print '<div class="connected-address col-sm-2 col-xs-6">'.$address.'</div>';
             }
         }
+        print '<div class="connected-phone-email col-sm-2 col-xs-6">';
         if ( $phone ){
             $phone = '';
             if((get_option('msdsocial_tracking_phone')!='')){
                 if(wp_is_mobile()){
-                  $phone .= 'Phone: <a href="tel:+1'.get_option('msdsocial_tracking_phone').'">'.get_option('msdsocial_tracking_phone').'</a> ';
+                  $phone .= '<label>Phone: </label><a href="tel:+1'.get_option('msdsocial_tracking_phone').'">'.get_option('msdsocial_tracking_phone').'</a> ';
                 } else {
-                  $phone .= 'Phone: <span>'.get_option('msdsocial_tracking_phone').'</span> ';
+                  $phone .= '<label>Phone: </label><span>'.get_option('msdsocial_tracking_phone').'</span> ';
                 }
               $phone .= '<span itemprop="telephone" style="display: none;">'.get_option('msdsocial_phone').'</span> ';
             } else {
                 if(wp_is_mobile()){
-                  $phone .= (get_option('msdsocial_phone')!='')?'Phone: <a href="tel:+1'.get_option('msdsocial_phone').'" itemprop="telephone">'.get_option('msdsocial_phone').'</a> ':'';
+                  $phone .= (get_option('msdsocial_phone')!='')?'<label>Phone: </label><a href="tel:+1'.get_option('msdsocial_phone').'" itemprop="telephone">'.get_option('msdsocial_phone').'</a> ':'';
                 } else {
-                  $phone .= (get_option('msdsocial_phone')!='')?'Phone: <span itemprop="telephone">'.get_option('msdsocial_phone').'</span> ':'';
+                  $phone .= (get_option('msdsocial_phone')!='')?'<label>Phone: </label><span itemprop="telephone">'.get_option('msdsocial_phone').'</span> ':'';
                 }
             }
             if ( $phone ){ print '<div class="connected-phone">'.$phone.'</div>'; }
@@ -52,32 +53,37 @@ class MSDConnected extends WP_Widget {
             $tollfree = '';
             if((get_option('msdsocial_tracking_tollfree')!='')){
                 if(wp_is_mobile()){
-                  $tollfree .= 'Toll Free: <a href="tel:+1'.get_option('msdsocial_tracking_tollfree').'">'.get_option('msdsocial_tracking_tollfree').'</a> ';
+                  $tollfree .= '<label>Toll Free: </label><a href="tel:+1'.get_option('msdsocial_tracking_tollfree').'">'.get_option('msdsocial_tracking_tollfree').'</a> ';
                 } else {
-                  $tollfree .= 'Toll Free: <span>'.get_option('msdsocial_tracking_tollfree').'</span> ';
+                  $tollfree .= '<label>Toll Free: </label><span>'.get_option('msdsocial_tracking_tollfree').'</span> ';
                 }
               $tollfree .= '<span itemprop="telephone" style="display: none;">'.get_option('msdsocial_tollfree').'</span> ';
             } else {
                 if(wp_is_mobile()){
-                  $tollfree .= (get_option('msdsocial_tollfree')!='')?'Toll Free: <a href="tel:+1'.get_option('msdsocial_tollfree').'" itemprop="telephone">'.get_option('msdsocial_tollfree').'</a> ':'';
+                  $tollfree .= (get_option('msdsocial_tollfree')!='')?'<label>Toll Free: </label><a href="tel:+1'.get_option('msdsocial_tollfree').'" itemprop="telephone">'.get_option('msdsocial_tollfree').'</a> ':'';
                 } else {
-                  $tollfree .= (get_option('msdsocial_tollfree')!='')?'Toll Free: <span itemprop="telephone">'.get_option('msdsocial_tollfree').'</span> ':'';
+                  $tollfree .= (get_option('msdsocial_tollfree')!='')?'<label>Toll Free: </label><span itemprop="telephone">'.get_option('msdsocial_tollfree').'</span> ':'';
                 }
             }
             if ( $tollfree ){ print '<div class="connected-tollfree">'.$tollfree.'</div>'; }
         }
         if ( $fax ){
-            $fax = (get_option('msdsocial_fax')!='')?'Fax: <span itemprop="faxNumber">'.get_option('msdsocial_fax').'</span> ':'';
+            $fax = (get_option('msdsocial_fax')!='')?'<label>Fax: <label><span itemprop="faxNumber">'.get_option('msdsocial_fax').'</span> ':'';
             if ( $fax ){ print '<div class="connected-fax">'.$fax.'</div>'; }
         }
         if ( $email ){
-            $email = (get_option('msdsocial_email')!='')?'Email: <span itemprop="email"><a href="mailto:'.antispambot(get_option('msdsocial_email')).'">'.antispambot(get_option('msdsocial_email')).'</a></span> ':'';
+            $email = (get_option('msdsocial_email')!='')?'<label>Email: </label><span itemprop="email"><a href="mailto:'.antispambot(get_option('msdsocial_email')).'">'.antispambot(get_option('msdsocial_email')).'</a></span> ':'';
             if ( $email ){ print '<div class="connected-email">'.$email.'</div>'; }
         }
-        if ( $social ){
-            $social = do_shortcode('[msd-social]');
-            if( $social ){ print '<div class="connected-social">'.$social.'</div>'; }
-        }	
+        print '</div>';
+        if ( !empty( $text )){ print '<div class="connected-text col-sm-4 col-sm-offset-2 col-xs-12">'.$text.'</div>'; }
+        if ( $form_id > 0 ){
+            $form = RGFormsModel::get_form($form_id);
+            print '<div class="connected-form col-sm-4 col-sm-offset-2 col-xs-12">';
+            print do_shortcode('[gravityform id="'.$form_id.'" title="false" description="false" ajax="true"]');
+            print '<h4 class="form-trigger">'.$form->title.'</h4>';
+            print '</div>';
+        }
 		echo $after_widget;
 	}
 

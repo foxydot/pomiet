@@ -1235,8 +1235,6 @@ Site Footer
   color: #ffffff;
   font-size: 14px;
   font-size: 1.4rem;
-  padding: 40px 0;
-  padding: 4rem 0;
   text-align: center;
 }
 .site-footer a {
@@ -1416,10 +1414,96 @@ header.site-header .site-title a {
   -moz-background-clip: padding;
   border-radius: 100%;
   background-clip: padding-box;
+  margin: 3px;
 }
 .social-media span {
   text-indent: -9999px;
   display: none;
+}
+.footer-widgets .widget.msd-connected .widget-wrap {
+  position: relative;
+}
+.footer-widgets .widget.msd-connected .widget-wrap .connected-social label,
+.footer-widgets .widget.msd-connected .widget-wrap .connected-address label,
+.footer-widgets .widget.msd-connected .widget-wrap .connected-phone-email label,
+.footer-widgets .widget.msd-connected .widget-wrap .connected-text label {
+  display: none;
+}
+.footer-widgets .widget.msd-connected .widget-wrap .connected-form {
+  position: absolute;
+  bottom: -40px;
+  right: 0;
+}
+.footer-widgets .widget.msd-connected .widget-wrap .connected-form h4 {
+  background: none repeat scroll 0 0 #bebe14;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1.4rem;
+  margin: 0;
+  padding: 2rem 3rem 1rem;
+  text-align: left;
+  text-transform: uppercase;
+}
+.footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper {
+  background: #bebe14;
+  display: block;
+  position: absolute;
+  z-index: 400;
+  margin: 0;
+  padding: 1rem;
+  width: 100%;
+  bottom: 40px;
+}
+.footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 2s ease-in 0s;
+}
+.footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form input,
+.footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form textarea {
+  color: #ffffff;
+  background: #bebe14;
+  border: 2px solid #e7e71e;
+  padding: 0.6rem;
+}
+.footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form ::-webkit-input-placeholder {
+  color: #ffffff;
+}
+.footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form :-moz-placeholder {
+  /* Firefox 18- */
+  color: #ffffff;
+}
+.footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form ::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #ffffff;
+}
+.footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form :-ms-input-placeholder {
+  color: #ffffff;
+}
+.footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form input[type="submit"],
+.footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form input[type="button"],
+.footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form a.button {
+  background: #bebe14;
+  border: 0;
+  font-weight: 700;
+}
+.footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form input[type="submit"]:hover,
+.footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form input[type="button"]:hover,
+.footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form a.button:hover {
+  background: #a7a712;
+}
+.footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper.open_form form {
+  height: auto;
+  max-height: 1000px;
+}
+.footer-widgets .widget.msd-connected .widget-wrap:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 /*
 Media Queries

@@ -59,12 +59,16 @@ class MSDSocial{
 
 //contact information
 function get_bizname(){
+    $ret = '<div itemtype="http://schema.org/LocalBusiness">';
+    $ret .= '<span itemprop="name" class="msdsocial_biz_name">';
 	$ret .= (get_option('msdsocial_biz_name')!='')?get_option('msdsocial_biz_name'):get_bloginfo('name');
+    $ret .= '</span>';
+    $ret .= '</div>';
 	return $ret;
 }
 function get_address(){
 	if((get_option('msdsocial_street')!='') || (get_option('msdsocial_city')!='') || (get_option('msdsocial_state')!='') || (get_option('msdsocial_zip')!='')) {
-		$ret = '<address itemscope itemtype="http://schema.org/LocalBusiness">';
+		$ret = '<address itemtype="http://schema.org/LocalBusiness">';
 			$ret .= (get_option('msdsocial_street')!='')?'<span itemprop="streetAddress" class="msdsocial_street">'.get_option('msdsocial_street').'</span> ':'';
 			$ret .= (get_option('msdsocial_street2')!='')?'<span itemprop="streetAddress" class="msdsocial_street_2">'.get_option('msdsocial_street2').'</span> ':'';
 			$ret .= (get_option('msdsocial_city')!='')?'<span itemprop="addressLocality" class="msdsocial_city">'.get_option('msdsocial_city').'</span>, ':'';
@@ -82,33 +86,33 @@ function get_digits($dowrap = TRUE,$sep = " | "){
 		if((get_option('msdsocial_phone')!='') || (get_option('msdsocial_tollfree')!='') || (get_option('msdsocial_fax')!='')) {
 		    if((get_option('msdsocial_tracking_phone')!='')){
 		        if(wp_is_mobile()){
-		          $phone .= 'Phone: <a href="tel:+1'.get_option('msdsocial_tracking_phone').'">'.get_option('msdsocial_tracking_phone').'</a> ';
+		          $phone .= '<label>Phone: </label><a href="tel:+1'.get_option('msdsocial_tracking_phone').'">'.get_option('msdsocial_tracking_phone').'</a> ';
 		        } else {
-		          $phone .= 'Phone: <span>'.get_option('msdsocial_tracking_phone').'</span> ';
+		          $phone .= '<label>Phone: </label><span>'.get_option('msdsocial_tracking_phone').'</span> ';
 		        }
 		      $phone .= '<span itemprop="telephone" style="display: none;">'.get_option('msdsocial_phone').'</span> ';
 		    } else {
 		        if(wp_is_mobile()){
-		          $phone .= (get_option('msdsocial_phone')!='')?'Phone: <a href="tel:+1'.get_option('msdsocial_phone').'" itemprop="telephone">'.get_option('msdsocial_phone').'</a> ':'';
+		          $phone .= (get_option('msdsocial_phone')!='')?'<label>Phone: </label><a href="tel:+1'.get_option('msdsocial_phone').'" itemprop="telephone">'.get_option('msdsocial_phone').'</a> ':'';
 		        } else {
-                  $phone .= (get_option('msdsocial_phone')!='')?'Phone: <span itemprop="telephone">'.get_option('msdsocial_phone').'</span> ':'';
+                  $phone .= (get_option('msdsocial_phone')!='')?'<label>Phone: </label><span itemprop="telephone">'.get_option('msdsocial_phone').'</span> ':'';
 		        }
 		    }
             if((get_option('msdsocial_tracking_tollfree')!='')){
                 if(wp_is_mobile()){
-                  $tollfree .= 'Phone: <a href="tel:+1'.get_option('msdsocial_tracking_tollfree').'">'.get_option('msdsocial_tracking_tollfree').'</a> ';
+                  $tollfree .= '<label>Phone: </label><a href="tel:+1'.get_option('msdsocial_tracking_tollfree').'">'.get_option('msdsocial_tracking_tollfree').'</a> ';
                 } else {
-                  $tollfree .= 'Phone: <span>'.get_option('msdsocial_tracking_tollfree').'</span> ';
+                  $tollfree .= '<label>Phone: </label><span>'.get_option('msdsocial_tracking_tollfree').'</span> ';
                 }
               $tollfree .= '<span itemprop="telephone" style="display: none;">'.get_option('msdsocial_tollfree').'</span> ';
             } else {
                 if(wp_is_mobile()){
-                  $tollfree .= (get_option('msdsocial_tollfree')!='')?'Phone: <a href="tel:+1'.get_option('msdsocial_tollfree').'" itemprop="telephone">'.get_option('msdsocial_tollfree').'</a> ':'';
+                  $tollfree .= (get_option('msdsocial_tollfree')!='')?'<label>Phone: </label><a href="tel:+1'.get_option('msdsocial_tollfree').'" itemprop="telephone">'.get_option('msdsocial_tollfree').'</a> ':'';
                 } else {
-                  $tollfree .= (get_option('msdsocial_tollfree')!='')?'Phone: <span itemprop="telephone">'.get_option('msdsocial_tollfree').'</span> ':'';
+                  $tollfree .= (get_option('msdsocial_tollfree')!='')?'<label>Phone: </label><span itemprop="telephone">'.get_option('msdsocial_tollfree').'</span> ':'';
                 }
             }
-            $fax = (get_option('msdsocial_fax')!='')?'Fax: <span itemprop="faxNumber">'.get_option('msdsocial_fax').'</span> ':'';
+            $fax = (get_option('msdsocial_fax')!='')?'<label>Fax: </label><span itemprop="faxNumber">'.get_option('msdsocial_fax').'</span> ':'';
             $ret = $phone;
             $ret .= ($phone!='' && $tollfree!='')?$sep:'';
             $ret .= $tollfree;
