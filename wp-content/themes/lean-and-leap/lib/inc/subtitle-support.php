@@ -3,13 +3,13 @@
 if(!class_exists('WPAlchemy_MetaBox')){
 	include_once WP_CONTENT_DIR.'/wpalchemy/MetaBox.php';
 }
-add_action('init','add_custom_metaboxes');
+add_action('init','subtitle_add_custom_metaboxes');
 add_action('admin_footer','subtitle_footer_hook');
-add_action( 'admin_print_scripts', 'my_metabox_styles' );
+add_action( 'admin_print_scripts', 'subtitle_metabox_styles' );
 add_action( 'genesis_entry_header', 'msdlab_do_post_subtitle' );
 
 
-function add_custom_metaboxes(){
+function subtitle_add_custom_metaboxes(){
 	global $subtitle_metabox;
     $subtitle_metabox = new WPAlchemy_MetaBox(array
     (
@@ -34,7 +34,7 @@ function subtitle_footer_hook()
 
 // include css to help style our custom meta boxes
  
-function my_metabox_styles()
+function subtitle_metabox_styles()
 {
     if ( is_admin() )
     {
