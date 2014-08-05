@@ -1445,47 +1445,36 @@ header.site-header .site-title a {
   text-transform: uppercase;
 }
 .footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper {
-  background: #bebe14;
   display: block;
   position: absolute;
   z-index: 400;
-  margin: 0;
-  padding: 1rem;
-  width: 100%;
+  margin: 0 -1.5rem;
+  width: auto;
+  padding: 0 1.5rem;
   bottom: 40px;
+  width: 100%;
+  max-width: 100%;
 }
 .footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form {
+  background: #bebe14;
   font-size: 1.2rem;
-  margin-bottom: 0;
+  margin: 0;
   max-height: 0;
   overflow: hidden;
   transition: all 2s ease-in 0s;
+  padding: 0 1rem;
 }
 .footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form input,
 .footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form textarea {
   color: #ffffff;
-  background: #bebe14;
+  background: #ffffff;
   border: 2px solid #e7e71e;
   padding: 0.6rem;
-}
-.footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form ::-webkit-input-placeholder {
-  color: #ffffff;
-}
-.footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form :-moz-placeholder {
-  /* Firefox 18- */
-  color: #ffffff;
-}
-.footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form ::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #ffffff;
-}
-.footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form :-ms-input-placeholder {
-  color: #ffffff;
 }
 .footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form input[type="submit"],
 .footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form input[type="button"],
 .footer-widgets .widget.msd-connected .widget-wrap .connected-form .gform_wrapper form a.button {
-  background: #bebe14;
+  background: #d5d516;
   border: 0;
   font-weight: 700;
 }

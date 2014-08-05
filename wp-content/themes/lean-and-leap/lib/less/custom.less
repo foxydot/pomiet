@@ -213,43 +213,31 @@ header.site-header{
             text-transform: uppercase;
           }
           .gform_wrapper{
-            background: @green;
             display: block;
             position: absolute;
             z-index: 400;
-            margin: 0;
-                padding: 1rem;
-                width: 100%;
-                bottom: 40px;
+            margin: 0 -1.5rem;
+            width: auto;
+            padding: 0 1.5rem;
+            bottom: 40px;
+            width: 100%;
+            max-width: 100%;
             form{
+              background: @green;
                font-size: 1.2rem;
-                margin-bottom: 0;
+                margin: 0;
                 max-height: 0;
                 overflow: hidden;
                 transition: all 2s ease-in 0s;
+                padding: 0 1rem;
                 input, textarea{
                   color: @white;
-                  background: @green;
+                  background: @white;
                   border: 2px solid lighten(@green, 10%);
                   padding: 0.6rem;
                 }
-                ::-webkit-input-placeholder {
-               color: @white;
-                }
-                
-                :-moz-placeholder { /* Firefox 18- */
-                   color: @white;  
-                }
-                
-                ::-moz-placeholder {  /* Firefox 19+ */
-                   color: @white;  
-                }
-                
-                :-ms-input-placeholder {  
-                   color: @white;  
-                }
                 input[type="submit"],input[type="button"],a.button{
-                  background: @green;
+                  background: lighten(@green,5%);
                   border: 0;
                   font-weight: 700;
                 }
