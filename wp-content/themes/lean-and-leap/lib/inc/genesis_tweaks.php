@@ -31,6 +31,8 @@ add_action('after_setup_theme','msdlab_add_extra_theme_sidebars', 4); //creates 
 add_filter('widget_text', 'do_shortcode');//shortcodes in widgets
 
 /*** CONTENT ***/
+add_action('genesis_entry_header','msdlab_post_meta',1);
+add_action('genesis_entry_content','msdlab_post_buttons');
 add_filter('genesis_breadcrumb_args', 'msdlab_breadcrumb_args'); //customize the breadcrumb output
 remove_action('genesis_before_loop', 'genesis_do_breadcrumbs'); //move the breadcrumbs 
 add_action('genesis_after_header', 'msdlab_taxonomy_title_description');

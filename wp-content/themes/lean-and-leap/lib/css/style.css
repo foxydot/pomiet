@@ -615,8 +615,7 @@ img.alignright,
 .archive-description,
 .author-box {
   background-color: #fff;
-  margin-bottom: 40px;
-  margin-bottom: 4rem;
+  margin-bottom: 0;
 }
 .archive-description {
   padding: 40px 40px 24px;
@@ -993,8 +992,8 @@ Content Area
   border-bottom: 4px solid #ebebe9;
   margin-bottom: 40px;
   margin-bottom: 4rem;
-  padding: 40px 40px 24px;
-  padding: 4rem 4rem 2.4rem;
+  padding: 24px 40px;
+  padding: 2.4rem 4rem;
 }
 .entry.last-child {
   border: 0;
@@ -1318,6 +1317,16 @@ article .buttons .btn-default {
 article .buttons .btn-default:hover {
   background-color: #bebe14;
 }
+.bubble-icon {
+  border-radius: 100%;
+  height: 100px;
+  width: 100px;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url(../img/icon-whitepaper.png);
+  border: 3px solid #c59828;
+}
 .bubble-wrapper {
   position: relative;
 }
@@ -1339,17 +1348,16 @@ article .buttons .btn-default:hover {
   padding-top: 60px;
 }
 .bubble-wrapper .bubble-icon {
+  float: none;
+  margin: 0;
   position: absolute;
   bottom: 0;
   right: 0;
-  border-radius: 100%;
-  height: 100px;
-  width: 100px;
-  background-color: #ffffff;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-image: url(../img/icon-whitepaper.png);
-  border: 3px solid #c59828;
+}
+.single-post .bubble-wrapper {
+  float: left;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
 }
 article.category-conference .bubble {
   background-color: #bebe14;

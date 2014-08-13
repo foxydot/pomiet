@@ -76,6 +76,16 @@ article{
     }
   }
 }
+.bubble-icon{
+  border-radius: 100%;
+  height: 100px;
+  width: 100px;
+  background-color: @white;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url(../img/icon-whitepaper.png);
+  border: 3px solid @orange;
+}
 .bubble-wrapper{
   position: relative;
   .bubble{
@@ -95,17 +105,18 @@ article{
     }
   }
   .bubble-icon{
+    float: none;
+    margin: 0;
     position: absolute;
     bottom: 0;
     right: 0;
-    border-radius: 100%;
-    height: 100px;
-    width: 100px;
-    background-color: @white;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-image: url(../img/icon-whitepaper.png);
-    border: 3px solid @orange;
+  }
+}
+.single-post{
+  .bubble-wrapper{
+    float: left;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
   }
 }
 article.category-conference{

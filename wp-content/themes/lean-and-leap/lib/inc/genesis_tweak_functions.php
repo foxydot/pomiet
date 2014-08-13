@@ -156,6 +156,13 @@ function msdlab_taxonomy_title_description(){
     
 }
 
+function msdlab_filter_title($title){
+    if(is_single()){
+        $title = '<div class="bubble-icon"></div>'.$title;
+    }
+    return $title;
+}
+
 function msdlab_older_link_text() {
         $olderlink = 'Older Posts &raquo;';
         return $olderlink;
@@ -165,6 +172,31 @@ function msdlab_newer_link_text() {
         $newerlink = '&laquo; Newer Posts';
         return $newerlink;
 }
+
+function msdlab_post_meta(){
+    global $formats_metabox,$post;
+    if(!is_page()){
+        $ret .= '<div class="bubble-wrapper col-sm-4">
+            <div class="bubble">
+            <h3 class="event-name">'.$post->post_title.'</h3>';
+            $ret .= $formats_metabox->get_the_value('event_date')!=''?'<p class="event-date">'.date('F j, Y',strtotime($formats_metabox->get_the_value('event_date'))).'</p>':'<p class="post-date">'.get_the_date('F j, Y').'</p>';
+            $ret .= $formats_metabox->get_the_value('event_location')!=''?'<p class="event-location">'.$formats_metabox->get_the_value('event_location').'</p>':'';
+            $ret .= '</div>
+            <div class="bubble-icon"></div>
+        </div>';
+        print $ret;
+    }
+}
+function msdlab_post_buttons(){
+    global $formats_metabox,$wpalchemy_media_access,$post;
+    while($formats_metabox->have_fields('buttons')):
+        $ret .= '<a href="'.$formats_metabox->get_the_value('file').'" class="btn btn-default" target="_blank">'.$formats_metabox->get_the_value('title').'</a>';
+    endwhile;
+    if($ret!=''){$ret='<div class="buttons">'.$ret.'</div>';}
+    print $ret;
+}
+
+
 /*** FOOTER ***/
 
 /**
