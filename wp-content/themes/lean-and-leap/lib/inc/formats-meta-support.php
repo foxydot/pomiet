@@ -3,6 +3,12 @@
 if(!class_exists('WPAlchemy_MetaBox')){
     include_once WP_CONTENT_DIR.'/wpalchemy/MetaBox.php';
 }
+global $wpalchemy_media_access;
+if(!class_exists('WPAlchemy_MediaAccess')){
+    include_once (WP_CONTENT_DIR.'/wpalchemy/MediaAccess.php');
+}
+$wpalchemy_media_access = new WPAlchemy_MediaAccess();
+
 add_action('init','formats_add_custom_metaboxes');
 add_action('admin_footer','formats_footer_hook', 99);
 add_action( 'admin_enqueue_scripts', 'formats_metabox_enqueue' );

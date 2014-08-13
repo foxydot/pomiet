@@ -647,16 +647,19 @@ img.alignright,
 /* Titles
 --------------------------------------------- */
 .entry-title {
-  font-size: 36px;
-  font-size: 3.6rem;
+  font-size: 30px;
+  font-size: 3.0rem;
   line-height: 1;
+  font-style: italic;
+  color: #333333;
+  font-weight: 500;
 }
 .entry-title a,
 .sidebar .widget-title a {
-  color: #333;
+  color: #333333;
 }
 .entry-title a:hover {
-  color: #666;
+  color: #595959;
 }
 .widget-title {
   font-size: 16px;
@@ -972,7 +975,7 @@ Site Navigation
   background: url(../img/bkg-nav.png) no-repeat center top;
 }
 .nav-primary .sub-menu a:hover {
-  color: #7f80a2;
+  color: #c59828;
 }
 /* Secondary Navigation
 --------------------------------------------- */
@@ -985,12 +988,16 @@ Content Area
 /* Entries
 --------------------------------------------- */
 .entry {
-  background-color: #fff;
-  border-radius: 3px;
+  background-color: transparent;
+  border-radius: 0;
+  border-bottom: 4px solid #ebebe9;
   margin-bottom: 40px;
   margin-bottom: 4rem;
   padding: 40px 40px 24px;
   padding: 4rem 4rem 2.4rem;
+}
+.entry.last-child {
+  border: 0;
 }
 .entry-content a {
   border-bottom: 1px solid #ddd;
@@ -1296,6 +1303,67 @@ header.site-header .site-title a {
   font-size: 1.8rem;
   color: #333333;
   font-style: italic;
+}
+article .buttons a.btn {
+  margin: 0 6px;
+}
+article .buttons .btn-default {
+  background-color: #90900f;
+  border: 0;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: center;
+  min-width: 100px;
+}
+article .buttons .btn-default:hover {
+  background-color: #bebe14;
+}
+.bubble-wrapper {
+  position: relative;
+}
+.bubble-wrapper .bubble {
+  background-color: #c59828;
+  border-radius: 100%;
+  color: #ffffff;
+  font-style: italic;
+  text-align: center;
+  min-height: 263px;
+}
+.bubble-wrapper .bubble h3,
+.bubble-wrapper .bubble p {
+  color: #ffffff;
+  padding: 0 40px;
+  margin: 0;
+}
+.bubble-wrapper .bubble h3 {
+  padding-top: 60px;
+}
+.bubble-wrapper .bubble-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 100%;
+  height: 100px;
+  width: 100px;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url(../img/icon-whitepaper.png);
+  border: 3px solid #c59828;
+}
+article.category-conference .bubble {
+  background-color: #bebe14;
+}
+article.category-conference .bubble-icon {
+  background-image: url(../img/icon-conference.png);
+  border: 3px solid #bebe14;
+}
+article.category-webinar .bubble {
+  background-color: #7f80a2;
+}
+article.category-webinar .bubble-icon {
+  background-image: url(../img/icon-webinar.png);
+  border: 3px solid #7f80a2;
 }
 .sidebar-secondary {
   padding-right: 0;

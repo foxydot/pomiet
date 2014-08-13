@@ -40,6 +40,8 @@ remove_action( 'genesis_before_loop', 'genesis_do_taxonomy_title_description', 1
 
 remove_action( 'genesis_before_post_content', 'genesis_post_info' ); //remove the info (date, posted by,etc.)
 remove_action( 'genesis_after_post_content', 'genesis_post_meta' ); //remove the meta (filed under, tags, etc.)
+remove_action( 'genesis_entry_header', 'genesis_post_info' ,12); //remove the info (date, posted by,etc.)
+remove_action( 'genesis_entry_footer', 'genesis_post_meta' ); //remove the meta (filed under, tags, etc.)
 
 add_action( 'genesis_before_post', 'msdlab_post_image', 8 ); //add feature image across top of content on *pages*.
 add_filter( 'genesis_next_link_text', 'msdlab_older_link_text', 20);
