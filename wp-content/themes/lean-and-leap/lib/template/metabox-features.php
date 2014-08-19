@@ -31,18 +31,12 @@ if (is_admin() && $template_file == 'front-page.php') { ?>
         </div>
         <div class="cell">
         <?php $mb->the_field('title'); ?>
-        <label>Feature Title</label>            
+        <label>Solution Title</label>            
         <div class="input_container">
             <input type="text" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>"/></div>
         </div>
         <div class="cell">
-        <?php $mb->the_field('url'); ?>
-        <label>URL to link to</label>            
-        <div class="input_container">
-            <input type="text" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>"/></div>
-        </div>
-        <div class="cell">
-            <label>Feature Content</label>
+            <label>Solution Content</label>
             <div class="input_container">
                 <?php 
                 $mb->the_field('content');
@@ -52,6 +46,18 @@ if (is_admin() && $template_file == 'front-page.php') { ?>
                 wp_editor( $mb_content, $mb_editor_id, $mb_settings );
                 ?>
            </div>
+        </div>
+        <div class="cell">
+        <?php $mb->the_field('link_text'); ?>
+        <label>Link Text</label>            
+        <div class="input_container">
+            <input type="text" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>"/></div>
+        </div>
+        <div class="cell">
+        <?php $mb->the_field('url'); ?>
+        <label>URL to link to</label>            
+        <div class="input_container">
+            <input type="text" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>"/></div>
         </div>
     </div>
     <?php $i++; ?>

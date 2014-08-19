@@ -202,7 +202,7 @@ function add_homepage_metaboxes(){
     $features_metabox = new WPAlchemy_MetaBox(array
     (
         'id' => '_homepage_features',
-        'title' => 'Home Page Features',
+        'title' => 'Home Page Solutions',
         'types' => array('page'),
         'context' => 'normal', // same as above, defaults to "normal"
         'priority' => 'high', // same as above, defaults to "high"
@@ -215,7 +215,7 @@ function add_homepage_metaboxes(){
     $map_metabox = new WPAlchemy_MetaBox(array
     (
         'id' => '_homepage_map',
-        'title' => 'Home Page Building Blocks',
+        'title' => 'Home Page Vision',
         'types' => array('page'),
         'context' => 'normal', // same as above, defaults to "normal"
         'priority' => 'high', // same as above, defaults to "high"
