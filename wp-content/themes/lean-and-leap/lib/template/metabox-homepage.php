@@ -54,52 +54,16 @@ if (is_admin() && $template_file == 'front-page.php') { ?>
             </div>
         </div>
         <div class="cell">
-            <label>Slider Quote</label>
-            <div class="input_container">
-                <?php 
-                $mb->the_field('quote');
-                $mb_content = html_entity_decode($mb->get_the_value(), ENT_QUOTES, 'UTF-8');
-                $mb_editor_id = sanitize_key($mb->get_the_name());
-                $mb_settings = array('textarea_name'=>$mb->get_the_name(),'textarea_rows' => '5',);
-                wp_editor( $mb_content, $mb_editor_id, $mb_settings );
-                ?>
-           </div>
-        </div>
-        <div class="cell">
-        <?php $mb->the_field('attribution'); ?>
-        <label>Slider Quote Attribution</label>            
-        <div class="input_container">
-            <input type="text" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>"/></div>
-        </div>
-        <div class="cell">
         <?php $mb->the_field('title'); ?>
-        <label>Slider Content Area Title</label>            
+        <label>Slider Title</label>            
         <div class="input_container">
             <input type="text" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>"/></div>
         </div>
         <div class="cell">
-            <label>Slider Content Area Content</label>
-            <div class="input_container">
-                <?php 
-                $mb->the_field('content');
-                $mb_content = html_entity_decode($mb->get_the_value(), ENT_QUOTES, 'UTF-8');
-                $mb_editor_id = sanitize_key($mb->get_the_name());
-                $mb_settings = array('textarea_name'=>$mb->get_the_name(),'textarea_rows' => '5',);
-                wp_editor( $mb_content, $mb_editor_id, $mb_settings );
-                ?>
-           </div>
-        </div>
-        <div class="cell">
-            <label>Slider Content Area Sidebar</label>
-            <div class="input_container">
-                <?php 
-                $mb->the_field('sidebar');
-                $mb_content = html_entity_decode($mb->get_the_value(), ENT_QUOTES, 'UTF-8');
-                $mb_editor_id = sanitize_key($mb->get_the_name());
-                $mb_settings = array('textarea_name'=>$mb->get_the_name(),'textarea_rows' => '5',);
-                wp_editor( $mb_content, $mb_editor_id, $mb_settings );
-                ?>
-           </div>
+        <?php $mb->the_field('subtitle'); ?>
+        <label>Slider Subtitle</label>            
+        <div class="input_container">
+            <input type="text" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>"/></div>
         </div>
         <div class="cell">
             <a href="#" class="dodelete button alignright">Remove Slider</a>

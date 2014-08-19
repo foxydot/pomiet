@@ -215,11 +215,11 @@ function add_homepage_metaboxes(){
     $map_metabox = new WPAlchemy_MetaBox(array
     (
         'id' => '_homepage_map',
-        'title' => 'Home Page Map Area',
+        'title' => 'Home Page Building Blocks',
         'types' => array('page'),
         'context' => 'normal', // same as above, defaults to "normal"
         'priority' => 'high', // same as above, defaults to "high"
-        'template' => get_stylesheet_directory() . '/lib/template/metabox-map.php',
+        'template' => get_stylesheet_directory() . '/lib/template/metabox-blocks.php',
         'autosave' => TRUE,
         'mode' => WPALCHEMY_MODE_EXTRACT, // defaults to WPALCHEMY_MODE_ARRAY
         'prefix' => '_msdlab_', // defaults to NULL
