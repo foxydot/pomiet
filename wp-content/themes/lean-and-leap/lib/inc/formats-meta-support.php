@@ -21,7 +21,7 @@ function formats_add_custom_metaboxes(){
     (
         'id' => '_formats',
         'title' => 'Additional Meta',
-        'types' => array('post','page'),
+        'types' => array('post'),
         'context' => 'side', // same as above, defaults to "normal"
         'priority' => 'high', // same as above, defaults to "high"
         'template' => get_stylesheet_directory() . '/lib/template/formats-meta.php',
