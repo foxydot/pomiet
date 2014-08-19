@@ -29,6 +29,11 @@
 </style>
 <div class="meta_meta_control" id="formats_metabox">
     <p>
+        <?php $mb->the_field('event_name'); ?>
+        <label>Item Name</label>
+        <input type="text" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>" />
+    </p>
+    <p>
         <?php $mb->the_field('event_date'); ?>
         <label>Event Date</label>
         <input class="datepicker" type="text" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>" />

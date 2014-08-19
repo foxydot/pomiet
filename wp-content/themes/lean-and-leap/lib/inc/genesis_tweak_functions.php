@@ -178,7 +178,7 @@ function msdlab_post_meta(){
     if(!is_page()){
         $ret .= '<div class="bubble-wrapper col-sm-4">
             <div class="bubble">
-            <h3 class="event-name">'.$post->post_title.'</h3>';
+            <h3 class="event-name">'.$formats_metabox->get_the_value('event_name')!=''?$formats_metabox->get_the_value('event_name'):$post->post_title.'</h3>';
             $ret .= $formats_metabox->get_the_value('event_date')!=''?'<p class="event-date">'.date('F j, Y',strtotime($formats_metabox->get_the_value('event_date'))).'</p>':'<p class="post-date">'.get_the_date('F j, Y').'</p>';
             $ret .= $formats_metabox->get_the_value('event_location')!=''?'<p class="event-location">'.$formats_metabox->get_the_value('event_location').'</p>':'';
             $ret .= '</div>
