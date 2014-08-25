@@ -6,7 +6,7 @@ if(!class_exists('WPAlchemy_MetaBox')){
 add_action('init','subtitle_add_custom_metaboxes');
 add_action('admin_footer','subtitle_footer_hook');
 add_action( 'admin_print_scripts', 'subtitle_metabox_styles' );
-add_action( 'genesis_entry_header', 'msdlab_do_post_subtitle' );
+add_action( 'genesis_after_header', 'msdlab_do_post_subtitle' );
 
 
 function subtitle_add_custom_metaboxes(){
@@ -15,7 +15,7 @@ function subtitle_add_custom_metaboxes(){
     (
         'id' => '_subtitle',
         'title' => 'Header',
-        'types' => array('post','page'),
+        'types' => array('page'),
         'context' => 'normal', // same as above, defaults to "normal"
         'priority' => 'high', // same as above, defaults to "high"
         'template' => get_stylesheet_directory() . '/lib/template/subtitle-meta.php',
@@ -43,14 +43,21 @@ function subtitle_metabox_styles()
 }
 
 function msdlab_do_post_subtitle() {
-	global $subtitle_metabox;
-	$subtitle_metabox->the_meta();
-	$subtitle = $subtitle_metabox->get_the_value('subtitle');
+	global $wp_query, $subtitle_metabox;
 
-	if ( strlen( $subtitle ) == 0 )
-		return;
+    if ( ! is_page() )
+        return;
 
-	$subtitle = sprintf( '<h2 class="entry-subtitle">%s</h2>', apply_filters( 'genesis_post_title_text', $subtitle ) );
-	echo apply_filters( 'genesis_post_title_output', $subtitle ) . "\n";
+    if ( get_query_var( 'paged' ) >= 2 )
+        return;
+    $subtitle_metabox->the_meta();
+    if ( $subtitle_metabox->get_the_value('subtitle') )
+        $headline = sprintf( '<div class="col-sm-5 intro-headline"><h1 class="entry-subtitle">%s</h1></div>', strip_tags( $subtitle_metabox->get_the_value('subtitle') ) );
+    if ( $subtitle_metabox->get_the_value('header_text') )
+        $intro_text = '<div class="col-sm-7 intro-text">'.apply_filters( 'the_content',$subtitle_metabox->get_the_value('header_text') ).'</div>';
 
+    if ( $headline || $intro_text ){
+        printf( '<div class="page-description"><div class="wrap row">%s</div></div>', $headline . $intro_text );
+        remove_action('genesis_entry_header','genesis_do_post_title');
+    }
 }

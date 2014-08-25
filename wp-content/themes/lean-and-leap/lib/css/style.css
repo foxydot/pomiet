@@ -487,8 +487,6 @@ Structure and Layout
 }
 .site-inner {
   clear: both;
-  padding-top: 40px;
-  padding-top: 4rem;
 }
 /* Column Widths and Positions
 --------------------------------------------- */
@@ -605,6 +603,9 @@ img.alignright,
 .widget_calendar td,
 .widget_calendar th {
   text-align: center;
+}
+hr {
+  border-bottom: 4px solid #ebebe9;
 }
 /* Genesis
 --------------------------------------------- */
@@ -1284,10 +1285,15 @@ header.site-header .site-title a {
   background: none;
   padding: 0 0.5rem;
 }
-.archive-description {
+.archive-description,
+.page-description {
+  padding: 4rem 4rem 2.4rem;
   background: #c0bdb8;
 }
-.archive-description .wrap h1.archive-title {
+.archive-description .wrap h1.archive-title,
+.page-description .wrap h1.archive-title,
+.archive-description .wrap h1.entry-subtitle,
+.page-description .wrap h1.entry-subtitle {
   color: #ffffff;
   font-family: "Titillium Web", "Open Sans", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
@@ -1295,7 +1301,10 @@ header.site-header .site-title a {
   font-size: 5.6rem;
   font-weight: 600;
 }
-.archive-description .wrap .tax-intro-text {
+.archive-description .wrap .tax-intro-text,
+.page-description .wrap .tax-intro-text,
+.archive-description .wrap .intro-text,
+.page-description .wrap .intro-text {
   font-family: "Titillium Web", "Open Sans", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 18px;

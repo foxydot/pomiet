@@ -87,6 +87,15 @@ function msdlab_page_banner(){
     print $ret;
 }
 
+function msdlab_post_header( $attributes ){
+    $attributes['class'] .= ' col-sm-7 col-sm-offset-1';
+    return $attributes;
+}
+function msdlab_post_article( $attributes ){
+    $attributes['class'] .= ' row';
+    return $attributes;
+}
+
 /*** NAV ***/
 
 /*** SIDEBARS ***/
