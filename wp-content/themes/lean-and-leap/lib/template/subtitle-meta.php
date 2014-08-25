@@ -7,6 +7,11 @@
     <p>
         <?php $mb->the_field('header_text'); ?>
         <label>Description</label>
-        <textarea name="<?php $mb->the_name(); ?>"><?php $mb->the_value(); ?></textarea>
+        <?php 
+        $mb_content = html_entity_decode($mb->get_the_value(), ENT_QUOTES, 'UTF-8');
+        $mb_editor_id = sanitize_key($mb->get_the_name());
+        $mb_settings = array('textarea_name'=>$mb->get_the_name(),'textarea_rows' => '5',);
+        wp_editor( $mb_content, $mb_editor_id, $mb_settings );
+        ?>
     </p>
 </div>
