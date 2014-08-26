@@ -56,6 +56,15 @@ if (is_admin() && $template_file == 'front-page.php') { ?>
     <?php endwhile; ?>
     </div>
     <p style="margin-bottom:15px; padding-top:5px;"><a href="#" class="docopy-vision button">Add Vision</a>
+        
+    <div class="row">
+        <div class="cell">
+            <?php $mb->the_field('section-footer'); ?>
+        <label>Section Footer</label>            
+        <div class="input_container">
+            <input type="text" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>"/></div>
+        </div>
+    </div>
 </div>
 <script>
 jQuery(function($){
