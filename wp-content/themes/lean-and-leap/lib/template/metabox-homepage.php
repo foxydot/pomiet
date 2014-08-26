@@ -6,7 +6,7 @@ $template_file = get_post_meta($postid,'_wp_page_template',TRUE);
   // check for a template type
 if (is_admin() && $template_file == 'front-page.php') { ?>
 <style>
-#postdivrich{display: none;}
+#_subtitle_metabox{display: none;}
     .homepage_meta_control .table {display: block; width: 100%;}
     .homepage_meta_control .row {display: block;cursor: move;border-bottom: 1px solid #333;}
     .homepage_meta_control .row:before,
@@ -82,7 +82,7 @@ jQuery(function($){
             $("#warning").show();
         }
     });
-    $("#postdivrich").after($("#_homepage_metabox"));
+    $("#postdivrich").before($("#_homepage_metabox"));
 });</script>
 <?php } else {
     print "Select \"Front Page\" template and save to activate.";

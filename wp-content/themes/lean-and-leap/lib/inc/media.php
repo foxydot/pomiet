@@ -2,6 +2,8 @@
 /**
  * Add new image sizes
  */
+add_image_size('solutions',120, 120, TRUE);
+add_image_size('visions',150, 150, TRUE);
 add_image_size('post-thumb', 225, 160, TRUE);
 add_image_size( 'post-image', 540, 150, TRUE ); //image to float at the top of the post. Reversed Out does these a lot.
 
@@ -85,10 +87,24 @@ function msd_carousel_wrapper($slides,$params = array()){
     if($indicators){
         $ret .= '<ol class="carousel-indicators">'.$indicators.'</ol>';
     }
-    $ret .= '<div class="carousel-inner">'.($slides).'</div>
-    <div class="carousel-controls">
-        <a data-slide="prev" href="#myCarousel_'.$id.'" class="left carousel-control">'.$navleft.'</a>
-        <a data-slide="next" href="#myCarousel_'.$id.'" class="right carousel-control">'.$navright.'</a>
-    </div>
+    $ret .= '<div class="carousel-inner">'.($slides).'</div>';
+    if($navleft && $navright){
+        $ret .= '
+        <div class="carousel-controls">
+            <a data-slide="prev" href="#myCarousel_'.$id.'" class="left carousel-control">'.$navleft.'</a>
+            <a data-slide="next" href="#myCarousel_'.$id.'" class="right carousel-control">'.$navright.'</a>
+        </div>';
+    }
+    $ret .= '
 </div>';
+    return $ret;
+}
+
+if(!function_exists('get_attachment_id_from_src')){
+function get_attachment_id_from_src ($image_src) {
+        global $wpdb;
+        $query = "SELECT ID FROM {$wpdb->posts} WHERE guid='$image_src'";
+        $id = $wpdb->get_var($query);
+        return $id;
+    }
 }

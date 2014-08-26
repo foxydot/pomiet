@@ -27,3 +27,183 @@
   clear: both;
   visibility: hidden;
 }
+body {
+  background-color: #ebebe9;
+}
+#hp-top {
+  display: block;
+  margin-bottom: 2rem;
+  min-height: 440px;
+  min-height: 4.4rem;
+}
+#hp-top .carousel {
+  margin: 0 auto;
+  max-width: 1400px;
+}
+#hp-top .carousel .carousel-indicators {
+  top: 570px;
+  bottom: auto;
+  z-index: 100;
+}
+#hp-top .carousel .carousel-indicators li {
+  border: 2px solid #000000;
+  margin: 0 0.3rem;
+  background-color: #ffffff;
+  height: 12px;
+  width: 12px;
+}
+#hp-top .carousel .carousel-indicators li.active {
+  background-color: #ff0000;
+}
+#hp-top .carousel .item {
+  min-height: 440px;
+  min-height: 4.4rem;
+}
+#hp-top .carousel .item .image_block_wrapper {
+  position: relative;
+  width: 100%;
+  /* desired width */
+}
+#hp-top .carousel .item .image_block_wrapper:before {
+  content: "";
+  display: block;
+  padding-top: 42.85%;
+}
+#hp-top .carousel .item .image_block {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 1400px;
+  height: 100%;
+  position: absolute;
+  background-color: #000000;
+}
+#hp-top .carousel .item .image_block .title_block {
+  color: #ffffff;
+  text-align: left;
+  width: 100%;
+  position: absolute;
+  display: block;
+  top: 15%;
+}
+#hp-top .carousel .item .image_block .title_block .wrap .title {
+  width: 50%;
+  color: #ffffff;
+  font-family: "Titillium Web", "Open Sans", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 400;
+  font-size: 56px;
+  font-size: 5.6rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-shadow: 0 0 2px #000000;
+  margin-bottom: 1rem;
+}
+#hp-top .carousel .item .image_block .title_block .wrap .subtitle {
+  width: 50%;
+  font-family: "Titillium Web", "Open Sans", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  font-size: 3.6rem;
+  color: #ffffff;
+  font-style: italic;
+  line-height: 1.2;
+  text-shadow: 0 0 2px #000000;
+}
+#hp-top .carousel .item .image_block:hover .quote_block {
+  height: 25%;
+}
+#hp-top .carousel .carousel-controls {
+  max-width: 1400px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+#hp-top .carousel .carousel-controls .carousel-control {
+  border: none;
+  font-size: 200px;
+  line-height: 2.5;
+  opacity: 0;
+}
+#hp-top .carousel .carousel-controls .carousel-control:hover,
+#hp-top .carousel .carousel-controls .carousel-control:focus {
+  opacity: 0.9;
+}
+#hp-top .carousel .carousel-controls .carousel-control.left {
+  background-image: linear-gradient(to right, #000000 0px, rgba(0, 0, 0, 0) 100%);
+}
+#hp-top .carousel .carousel-controls .carousel-control.right {
+  background-image: linear-gradient(to left, #000000 0px, rgba(0, 0, 0, 0) 100%);
+}
+#hp-top .carousel-fade .carousel-inner .item {
+  opacity: 1;
+  transition-property: opacity 500ms ease-in;
+}
+#hp-top .carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+#homepage-solutions {
+  background-color: #d3d3ce;
+  padding-bottom: 2rem;
+}
+#homepage-solutions .widget .widget-header {
+  margin-top: -3rem;
+  position: relative;
+}
+#homepage-solutions .widget .widget-header img.pull-left {
+  padding-right: 1rem;
+}
+#homepage-solutions .widget .widget-header .widget-title {
+  font-family: "Titillium Web", "Open Sans", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  font-size: 2.4rem;
+  color: #bebe14;
+  font-style: italic;
+  text-transform: none;
+  margin-bottom: 10px;
+  position: absolute;
+  bottom: 0px;
+  left: 130px;
+}
+#homepage-solutions .widget .widget-content {
+  clear: both;
+  padding: 1rem;
+}
+#homepage-visions h3 {
+  font-family: "Titillium Web", "Open Sans", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  font-size: 3.6rem;
+  margin: 2rem auto;
+  text-align: center;
+}
+#homepage-visions .widget {
+  clear: both;
+}
+#homepage-visions .widget img {
+  vertical-align: middle;
+  border: 4px solid #c0bdb8;
+}
+#homepage-visions .widget .widget-content {
+  width: 70%;
+  font-size: 1.8rem;
+}
+#homepage-visions .widget .widget-content.left {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 2rem;
+}
+#homepage-visions .widget .widget-content.right {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 2rem;
+  text-align: right;
+}
+#homepage-visions .widget.right {
+  text-align: right;
+}

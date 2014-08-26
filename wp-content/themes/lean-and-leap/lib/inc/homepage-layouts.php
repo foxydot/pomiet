@@ -41,11 +41,90 @@ function msdlab_add_homepage_callout_sidebars(){
  * Add a hero space with the site description
  */
 function msdlab_hero(){
-    if(is_active_sidebar('homepage-top')){
-        print '<div id="hp-top">';
-        dynamic_sidebar('homepage-top');
-        print '</div>';
-    } 
+    //grab slider logic from triumph
+    global $homepage_metabox;
+    $id = 'homepage';
+    print '<div id="hp-top">';
+    $i = 0;
+    $navleft = '‹';
+    while($homepage_metabox->have_fields('sliders')):
+        $active = $i==0?' active':'';
+        $indicators .= '<li data-target="#myCarousel_'.$id.'" data-slide-to="'.$i.'" class="'.$active.'"></li>';
+        $items .= '
+        <div class="item'.$active.'">
+        <div class="image_block_wrapper">
+           <div class="image_block" style="background: url('.$homepage_metabox->get_the_value('image').') center bottom no-repeat #000000;background-size: cover;">
+               <div class="title_block">
+                  <div class="wrap">
+                    <div class="title">'.$homepage_metabox->get_the_value('title').'</div>
+                    <div class="subtitle">'.$homepage_metabox->get_the_value('subtitle').'</div>
+                  </div>
+               </div>
+           </div>
+         </div>
+        </div>';
+        $i++;
+    endwhile;
+    if($i<=1){$indicators = $navleft = false;}
+    print msd_carousel_wrapper($items,array('id' => $id,'indicators' => $indicators, 'navleft' => $navleft));
+    print '</div>';
+}
+
+function msdlab_solutions(){
+    global $solutions_metabox;
+    print '<div id="homepage-solutions" class="widget-area">';
+    print '<div class="wrap">
+    <div class="row">';
+    $i = 0;
+    while($solutions_metabox->have_fields('features')):
+        $attachment_id = get_attachment_id_from_src($solutions_metabox->get_the_value('image'));
+        $image_url = wp_get_attachment_image_src($attachment_id,'solutions');
+        print '<section class="col-sm-4 col-xs-12 widget">
+            <div class="widget-wrap">
+                <div class="widget-text">
+                    <div class="widget-header">
+                        <img class="" src="'.$image_url[0].'" />
+                        <h4 class="widget-title">'.$solutions_metabox->get_the_value('title').'</h4>
+                    </div>
+                    <div class="widget-content">'.apply_filters('the_content',$solutions_metabox->get_the_value('content')).'
+                    <a href="'.$solutions_metabox->get_the_value('url').'" class="readmore">'.$solutions_metabox->get_the_value('link_text').'</a>
+                    </div>
+                </div>
+            </div>
+        </section>';
+    endwhile;
+    print '</div>
+    </div>';
+    print '</div>';
+}
+
+function msdlab_visions(){
+    global $visions_metabox;
+    $visions_metabox->the_meta();
+    print '<div id="homepage-visions" class="widget-area">';
+    print '<div class="wrap">
+    <div class="row">
+    <h3>'.$visions_metabox->get_the_value('section-title').'</h3>';
+    $i = 0;
+    while($visions_metabox->have_fields('vision')):
+        $side = $i%2==0?'left':'right';
+        $attachment_id = get_attachment_id_from_src($visions_metabox->get_the_value('image'));
+        $image_url = wp_get_attachment_image_src($attachment_id,'visions');
+        print '<section class="widget '.$side.'">
+            <div class="widget-wrap">
+                <div class="widget-text">';
+                if($side == 'left'){print '<img class="img-circle" src="'.$image_url[0].'" />';}
+                print '<div class="widget-content '.$side.'">'.apply_filters('the_content',$visions_metabox->get_the_value('content')).'</div>';
+                if($side == 'right'){print '<img class="img-circle" src="'.$image_url[0].'" />';}
+        print '     
+                </div>
+            </div>
+        </section>';
+        $i++;
+    endwhile;
+    print '</div>
+    </div>';
+    print '</div>';
 }
 
 /**
@@ -185,7 +264,7 @@ add_action('admin_footer','homepage_footer_hook');
 //add_action( 'admin_print_scripts', 'homepage_metabox_styles' );
 
 function add_homepage_metaboxes(){
-    global $post,$homepage_metabox,$features_metabox,$map_metabox;
+    global $post,$homepage_metabox,$solutions_metabox,$visions_metabox;
     $homepage_metabox = new WPAlchemy_MetaBox(array
     (
         'id' => '_homepage',
@@ -199,9 +278,9 @@ function add_homepage_metaboxes(){
         'prefix' => '_msdlab_', // defaults to NULL
         'include_template' => 'front-page.php',
     ));
-    $features_metabox = new WPAlchemy_MetaBox(array
+    $solutions_metabox = new WPAlchemy_MetaBox(array
     (
-        'id' => '_homepage_features',
+        'id' => '_homepage_solutions',
         'title' => 'Home Page Solutions',
         'types' => array('page'),
         'context' => 'normal', // same as above, defaults to "normal"
@@ -212,9 +291,9 @@ function add_homepage_metaboxes(){
         'prefix' => '_msdlab_', // defaults to NULL
         'include_template' => 'front-page.php',
     ));
-    $map_metabox = new WPAlchemy_MetaBox(array
+    $visions_metabox = new WPAlchemy_MetaBox(array
     (
-        'id' => '_homepage_map',
+        'id' => '_homepage_vision',
         'title' => 'Home Page Vision',
         'types' => array('page'),
         'context' => 'normal', // same as above, defaults to "normal"
