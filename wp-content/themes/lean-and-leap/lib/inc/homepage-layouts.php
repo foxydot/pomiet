@@ -122,6 +122,7 @@ function msdlab_visions(){
         </section>';
         $i++;
     endwhile;
+    print '<h3>'.$visions_metabox->get_the_value('section-footer').'</h3>';
     print '</div>
     </div>';
     print '</div>';

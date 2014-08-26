@@ -182,6 +182,10 @@ body {
   margin: 2rem auto;
   text-align: center;
 }
+#homepage-visions h3 strong {
+  font-weight: normal;
+  color: #bebe14;
+}
 #homepage-visions .widget {
   clear: both;
 }
