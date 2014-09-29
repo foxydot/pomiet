@@ -45,9 +45,16 @@ if (is_admin() && $template_file == 'front-page.php') { ?>
     <?php $mb->the_group_open(); ?>
     <div class="row <?php print $i%2==0?'even':'odd'; ?>">
         <div class="cell file">
-            <label>Slider Image (600x1400px)</label>
-            <div class="input_container">
         <?php $mb->the_field('image'); ?>
+            <label>Slider Image (600x1400px)
+            <?php 
+            if($mb->get_the_value() != ''){
+                $attachment_id = get_attachment_id_from_src($mb->get_the_value());
+                $image_url = wp_get_attachment_image_src($attachment_id,'adminthumb');
+                print '<br /><img src="'.$image_url[0].'" />';
+            } 
+            ?></label>
+            <div class="input_container">
         <?php $wpalchemy_media_access->setGroupName('tab-img'. $mb->get_the_index())->setInsertButtonLabel('Insert This')->setTab('gallery'); ?>
         <?php echo $wpalchemy_media_access->getField(array('name' => $mb->get_the_name(), 'value' => $mb->get_the_value())); ?>
         <?php echo $wpalchemy_media_access->getButton(array('label' => 'Add Image')); ?>

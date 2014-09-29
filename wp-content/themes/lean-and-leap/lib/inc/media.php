@@ -2,6 +2,7 @@
 /**
  * Add new image sizes
  */
+add_image_size('adminthumb',50,50,TRUE);
 add_image_size('solutions',120, 120, TRUE);
 add_image_size('visions',150, 150, TRUE);
 add_image_size('post-thumb', 225, 160, TRUE);
